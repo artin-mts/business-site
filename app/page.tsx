@@ -33,7 +33,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a
-              href="#contact"
+              href="mailto:artin@mts-analytics.com"
               className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity text-lg"
             >
               Talk to MTS Analytics
@@ -323,8 +323,8 @@ export default function Home() {
       <CTASection
         title="Ready to get serious about your data?"
         description="If you're a growth‑stage e‑commerce or DTC brand wrestling with messy data, broken reporting, or unclear ROI, let's talk."
-        buttonText="Talk to MTS Analytics"
-        buttonHref="#contact"
+        buttonText="Email MTS Analytics"
+        buttonHref="mailto:artin@mts-analytics.com"
       />
 
       {/* Contact Section */}
