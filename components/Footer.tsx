@@ -12,8 +12,8 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-midnight mb-3">Contact</h3>
             <p className="text-sm text-midnight/70">
-              <a href="mailto:artin@mts-analytics.com" className="hover:text-slate-blue transition-colors">
-                artin@mts-analytics.com
+              <a href="#contact" className="hover:text-slate-blue transition-colors">
+                Get in touch
               </a>
             </p>
             <p className="text-sm text-midnight/70 mt-1">
