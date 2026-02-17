@@ -26,7 +26,7 @@ export default function Header() {
               href="#contact"
               className="bg-slate-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
             >
-              Book Free Audit
+              Talk to MTS Analytics
             </Link>
           </div>
         </nav>

@@ -76,7 +76,7 @@ We help DTC and e-commerce brands fix broken data infrastructure. Stop pulling r
 
 ## Contact
 
-**Email:** hello@mtsanalytics.com  
+**Email:** artin@mts-analytics.com  
 **Website:** https://mtsanalytics.com  
 **Based in:** Los Angeles
 
