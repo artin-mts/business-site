@@ -78,5 +78,5 @@ What good actually looks like. Realistic benchmarks for 2025.
 4. Build incrementally
 5. Measure results
 
-**Need help?** Book a free data audit at hello@mtsanalytics.com
+**Need help?** Book a free data audit at artin@mts-analytics.com
 

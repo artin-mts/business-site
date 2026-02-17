@@ -346,7 +346,7 @@ export default function Home() {
             href="mailto:artin@mts-analytics.com"
             className="inline-block bg-slate-blue text-white px-6 py-3 rounded-md font-medium hover:opacity-90 transition-opacity"
           >
-            artin@mts-analytics.com
+            Email MTS Analytics
           </a>
         </motion.div>
       </section>
