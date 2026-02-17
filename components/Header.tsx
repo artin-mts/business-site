@@ -1,0 +1,37 @@
+import Link from 'next/link'
+import Image from 'next/image'
+
+export default function Header() {
+  return (
+    <header className="border-b border-cool-gray bg-soft-white">
+      <div className="max-w-5xl mx-auto px-6 py-4">
+        <nav className="flex items-center justify-between">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo-mts-analytics.svg"
+              alt="MTS Analytics"
+              width={200}
+              height={32}
+              priority
+            />
+          </Link>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/guide"
+              className="text-midnight hover:text-slate-blue transition-colors text-sm"
+            >
+              Data Stack Guide
+            </Link>
+            <Link
+              href="#contact"
+              className="bg-slate-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              Book Free Audit
+            </Link>
+          </div>
+        </nav>
+      </div>
+    </header>
+  )
+}
+
