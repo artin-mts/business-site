@@ -22,12 +22,12 @@ export default function Header() {
             >
               Data Stack Guide
             </Link>
-            <Link
-              href="#contact"
+            <a
+              href="mailto:artin@mts-analytics.com"
               className="bg-slate-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Talk to MTS Analytics
-            </Link>
+            </a>
           </div>
         </nav>
       </div>

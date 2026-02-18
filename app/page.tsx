@@ -319,15 +319,7 @@ export default function Home() {
         />
       </section>
 
-      {/* Final CTA Section */}
-      <CTASection
-        title="Ready to get serious about your data?"
-        description="If you're a growth‑stage e‑commerce or DTC brand wrestling with messy data, broken reporting, or unclear ROI, let's talk."
-        buttonText="Email MTS Analytics"
-        buttonHref="mailto:artin@mts-analytics.com"
-      />
-
-      {/* Contact Section */}
+      {/* Contact / Final CTA Section */}
       <section id="contact" className="max-w-5xl mx-auto px-6 py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -337,9 +329,12 @@ export default function Home() {
           className="text-center"
         >
           <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-4">
-            Let's talk
+            Ready to get serious about your data?
           </h2>
-          <p className="text-lg text-midnight/70 mb-8">
+          <p className="text-lg text-midnight/70 mb-4">
+            If you're a growth‑stage e‑commerce or DTC brand wrestling with messy data, broken reporting, or unclear ROI, let's talk.
+          </p>
+          <p className="text-sm text-midnight/60 mb-8 max-w-2xl mx-auto">
             Send a short note about your brand, your current data stack, and what you wish it could do. We’ll reply with next steps and, if it’s a fit, schedule a 30‑minute strategy call.
           </p>
           <a
