@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import CTASection from '@/components/CTASection'
 import ServiceCard from '@/components/ServiceCard'
@@ -12,43 +13,65 @@ export default function Home() {
   return (
     <div className="bg-soft-white">
       {/* Hero Section */}
-      <section className="max-w-5xl mx-auto px-6 py-24 md:py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <div className="inline-block bg-slate-blue/10 text-slate-blue px-4 py-1 rounded-full text-sm font-medium mb-6">
-            Data & AI studio for e‑commerce and DTC brands
-          </div>
-          <h1 className="text-5xl md:text-6xl font-semibold text-midnight mb-6">
-            Data & AI for brands that are serious about growth
-          </h1>
-          <p className="text-xl md:text-2xl text-midnight/80 mb-4 max-w-3xl mx-auto">
-            MTS Analytics is a small data & AI studio that builds end‑to‑end analytics for e‑commerce and DTC brands—from connecting ERPs and ad platforms to modeling data for reporting and AI‑driven decision support.
-          </p>
-          <p className="text-lg text-midnight/60 mb-8 max-w-2xl mx-auto">
-            Unify spend and performance across channels, fix broken reporting, and unlock conversational and agentic AI on top of a clean, trusted data foundation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <a
-              href="/revenue-intelligence"
-              className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity text-lg"
-            >
-              See Revenue Intelligence Stack
-            </a>
-            <a
-              href="/revenue-intelligence#how-it-works"
-              className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:border-midnight/40 transition-colors text-lg"
-            >
-              See how it works
-            </a>
-          </div>
-          <p className="text-sm text-midnight/50">
-            No junior handoffs. You work directly with a senior analytics engineer and architect.
-          </p>
-        </motion.div>
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-blue/10 via-soft-white to-cyan-100/10" />
+        <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 lg:grid-cols-[1.1fr,0.9fr] gap-10 items-center"
+          >
+            <div className="text-center lg:text-left">
+              <div className="inline-block bg-slate-blue/10 text-slate-blue px-4 py-1 rounded-full text-sm font-medium mb-6">
+                Data &amp; AI studio for ecommerce and DTC brands
+              </div>
+              <h1 className="text-5xl md:text-6xl font-semibold text-midnight mb-6">
+                Data &amp; AI for brands that are serious about growth.
+              </h1>
+              <p className="text-xl md:text-2xl text-midnight/80 mb-4 max-w-3xl lg:max-w-xl mx-auto lg:mx-0">
+                MTS Analytics builds the data and AI systems serious ecommerce brands rely on to
+                understand revenue, not just report on it.
+              </p>
+              <p className="text-lg text-midnight/60 mb-8 max-w-2xl lg:max-w-xl mx-auto lg:mx-0">
+                Unify spend and performance across channels, fix broken reporting, and unlock
+                conversational and agentic AI on top of a clean, trusted data foundation.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
+                <a
+                  href="/revenue-intelligence"
+                  className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity text-lg"
+                >
+                  See Revenue Intelligence Stack
+                </a>
+                <a
+                  href="/revenue-intelligence#how-it-works"
+                  className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:border-midnight/40 transition-colors text-lg"
+                >
+                  How it works
+                </a>
+              </div>
+              <p className="text-sm text-midnight/50">
+                No junior handoffs. You work directly with a senior analytics engineer and architect.
+              </p>
+            </div>
+            <div className="hidden lg:flex justify-end">
+              <div className="relative w-full max-w-md">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-slate-blue/30 via-slate-blue/0 to-cyan-400/40 blur-3xl opacity-60" />
+                <div className="relative rounded-2xl overflow-hidden border border-slate-blue/30 bg-midnight shadow-2xl">
+                  <Image
+                    src="/home-hero-metrics.svg"
+                    alt="Revenue and channel performance overview"
+                    width={640}
+                    height={400}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Featured Offer: Revenue Intelligence Stack */}
