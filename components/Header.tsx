@@ -22,12 +22,6 @@ export default function Header() {
             >
               Revenue Intelligence Stack
             </Link>
-            <Link
-              href="/guide"
-              className="text-midnight hover:text-slate-blue transition-colors text-sm hidden sm:inline"
-            >
-              Data Stack Guide
-            </Link>
             <a
               href="mailto:artin@mts-analytics.com"
               className="bg-slate-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"

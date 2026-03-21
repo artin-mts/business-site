@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import CTASection from '@/components/CTASection'
 
@@ -26,39 +27,56 @@ export default function RevenueIntelligencePage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="grid grid-cols-1 md:grid-cols-[1.1fr,0.9fr] gap-10 items-center"
         >
-          <div className="inline-block bg-slate-blue/10 text-slate-blue px-4 py-1 rounded-full text-sm font-medium mb-6">
-            Premium ecommerce analytics & AI system
+          <div className="text-center md:text-left">
+            <div className="inline-block bg-slate-blue/10 text-slate-blue px-4 py-1 rounded-full text-sm font-medium mb-6">
+              Premium ecommerce analytics &amp; AI system
+            </div>
+            <h1 className="text-5xl md:text-6xl font-semibold text-midnight mb-6">
+              See your revenue clearly. Decide in minutes.
+            </h1>
+            <p className="text-xl md:text-2xl text-midnight/80 mb-4 max-w-3xl md:max-w-none mx-auto md:mx-0">
+              Revenue Intelligence Stack turns messy, conflicting ecommerce data into one trusted
+              view of revenue—and instant answers to what&apos;s happening and why.
+            </p>
+            <p className="text-lg text-midnight/60 mb-8 max-w-2xl md:max-w-none mx-auto md:mx-0">
+              Built for ecommerce brands doing $5M–$50M+ who are done guessing and ready to make
+              confident decisions from numbers they actually trust.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
+              <a
+                href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20Demo"
+                className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity text-lg"
+              >
+                Book a Revenue Intelligence Demo
+              </a>
+              <a
+                href="#how-it-works"
+                className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:border-midnight/40 transition-colors text-lg"
+              >
+                See how it works
+              </a>
+            </div>
+            <p className="text-sm text-midnight/50">
+              No junior handoffs. You work directly with a senior analytics engineer and architect.
+            </p>
           </div>
-          <h1 className="text-5xl md:text-6xl font-semibold text-midnight mb-6">
-            See your revenue clearly. Decide in minutes.
-          </h1>
-          <p className="text-xl md:text-2xl text-midnight/80 mb-4 max-w-3xl mx-auto">
-            Revenue Intelligence Stack turns messy, conflicting ecommerce data into one trusted view
-            of revenue—and instant answers to what&apos;s happening and why.
-          </p>
-          <p className="text-lg text-midnight/60 mb-8 max-w-2xl mx-auto">
-            Built for ecommerce brands doing $5M–$50M+ who are done guessing and ready to make
-            confident decisions from numbers they actually trust.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <a
-              href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20Demo"
-              className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity text-lg"
-            >
-              Book a Revenue Intelligence Demo
-            </a>
-            <a
-              href="#how-it-works"
-              className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:border-midnight/40 transition-colors text-lg"
-            >
-              See how it works
-            </a>
+          <div className="hidden md:flex justify-end">
+            <div className="relative w-full max-w-sm">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-slate-blue/30 via-slate-blue/0 to-cyan-400/40 blur-2xl opacity-60" />
+              <div className="relative rounded-2xl overflow-hidden border border-slate-blue/30 bg-midnight shadow-2xl">
+                <Image
+                  src="/revenue-intelligence-hero.svg"
+                  alt="Revenue Intelligence Stack visual"
+                  width={480}
+                  height={320}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
+            </div>
           </div>
-          <p className="text-sm text-midnight/50">
-            No junior handoffs. You work directly with a senior analytics engineer and architect.
-          </p>
         </motion.div>
       </section>
 
