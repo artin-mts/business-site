@@ -39,10 +39,10 @@ export default function Home() {
               See Revenue Intelligence Stack
             </a>
             <a
-              href="/guide"
+              href="/revenue-intelligence#how-it-works"
               className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:border-midnight/40 transition-colors text-lg"
             >
-              Get the Data Stack Guide
+              See how it works
             </a>
           </div>
           <p className="text-sm text-midnight/50">
