@@ -3,12 +3,6 @@
 import { motion } from 'framer-motion'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
-  title: 'Revenue Intelligence Stack | MTS Analytics',
-  description:
-    'A premium analytics and AI system for ecommerce brands doing $5M–$50M+. One source of truth for revenue, attribution clarity, and instant answers to what\'s happening and why.',
-}
-
 export default function RevenueIntelligencePage() {
   return (
     <div className="bg-soft-white relative">
