@@ -33,10 +33,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a
-              href="mailto:artin@mts-analytics.com"
+              href="/revenue-intelligence"
               className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity text-lg"
             >
-              Talk to MTS Analytics
+              See Revenue Intelligence Stack
             </a>
             <a
               href="/guide"
@@ -48,6 +48,38 @@ export default function Home() {
           <p className="text-sm text-midnight/50">
             No junior handoffs. You work directly with a senior analytics engineer and architect.
           </p>
+        </motion.div>
+      </section>
+
+      {/* Featured Offer: Revenue Intelligence Stack */}
+      <section className="max-w-5xl mx-auto px-6 pb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-white border border-slate-blue/15 rounded-lg p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 shadow-sm"
+        >
+          <div className="flex-1 text-left">
+            <p className="text-xs font-semibold tracking-wide uppercase text-slate-blue mb-1">
+              Featured offer
+            </p>
+            <h2 className="text-xl md:text-2xl font-semibold text-midnight mb-1">
+              Revenue Intelligence Stack
+            </h2>
+            <p className="text-sm text-midnight/70 max-w-xl">
+              A complete analytics and AI system for ecommerce brands doing $5M–$50M+ that turns
+              messy data into trusted revenue and instant decisions.
+            </p>
+          </div>
+          <div>
+            <a
+              href="/revenue-intelligence"
+              className="inline-block bg-slate-blue text-white px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
+            >
+              See the Stack
+            </a>
+          </div>
         </motion.div>
       </section>
 

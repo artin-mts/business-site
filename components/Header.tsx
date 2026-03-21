@@ -17,8 +17,14 @@ export default function Header() {
           </Link>
           <div className="flex items-center gap-6">
             <Link
-              href="/guide"
+              href="/revenue-intelligence"
               className="text-midnight hover:text-slate-blue transition-colors text-sm"
+            >
+              Revenue Intelligence Stack
+            </Link>
+            <Link
+              href="/guide"
+              className="text-midnight hover:text-slate-blue transition-colors text-sm hidden sm:inline"
             >
               Data Stack Guide
             </Link>

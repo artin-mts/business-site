@@ -103,6 +103,26 @@ export default function Guide() {
         </div>
       </section>
 
+      {/* Connect to Revenue Intelligence Stack */}
+      <section className="max-w-5xl mx-auto px-6 pb-8">
+        <div className="bg-white border border-cool-gray rounded-lg p-6 text-center">
+          <h2 className="text-2xl font-semibold text-midnight mb-2">
+            Want this stack implemented end‑to‑end?
+          </h2>
+          <p className="text-midnight/70 mb-4 text-sm max-w-xl mx-auto">
+            Revenue Intelligence Stack is the implementation of this guide: warehouse, models,
+            dashboards, and an AI layer on top so you can ask questions in plain English and get
+            trusted answers.
+          </p>
+          <a
+            href="/revenue-intelligence"
+            className="inline-block bg-slate-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
+          >
+            See Revenue Intelligence Stack
+          </a>
+        </div>
+      </section>
+
       {/* Simple mock capture */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <div className="bg-white border border-cool-gray rounded-lg p-8 text-center">
