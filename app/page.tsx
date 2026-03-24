@@ -119,7 +119,7 @@ export default function Home() {
             How we can work together
           </h2>
           <p className="text-lg text-midnight/60 max-w-2xl mx-auto">
-            High‑paying brands buy outcomes, not random analytics work. These are the three main ways we typically engage.
+            Brands that win with data focus on outcomes. Here are the three main ways we help them do it.
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
