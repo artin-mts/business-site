@@ -23,7 +23,8 @@ export default function ServiceCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="bg-white border border-cool-gray rounded-lg p-8 hover:shadow-lg transition-shadow"
+      whileHover={{ y: -4, boxShadow: '0 12px 40px -10px rgba(82, 108, 255, 0.15)' }}
+      className="bg-white border border-cool-gray border-t-2 border-t-slate-blue rounded-lg p-8 transition-colors cursor-default"
     >
       <h3 className="text-xl font-semibold text-midnight mb-3">{title}</h3>
       {tech && (
@@ -46,4 +47,3 @@ export default function ServiceCard({
     </motion.div>
   )
 }
-

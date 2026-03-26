@@ -16,49 +16,83 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-blue/10 via-soft-white to-cyan-100/10" />
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 lg:grid-cols-[1.1fr,0.9fr] gap-10 items-center"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr,0.9fr] gap-10 items-center">
             <div className="text-center lg:text-left">
-              <div className="inline-block bg-slate-blue/10 text-slate-blue px-4 py-1 rounded-full text-sm font-medium mb-6">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="inline-block bg-slate-blue/10 text-slate-blue px-4 py-1 rounded-full text-sm font-medium mb-6"
+              >
                 Data &amp; AI studio for ecommerce and DTC brands
-              </div>
-              <h1 className="text-5xl md:text-6xl font-semibold text-midnight mb-6">
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-5xl md:text-6xl font-semibold text-midnight mb-6"
+              >
                 Data &amp; AI for brands that are serious about growth.
-              </h1>
-              <p className="text-xl md:text-2xl text-midnight/80 mb-4 max-w-3xl lg:max-w-xl mx-auto lg:mx-0">
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="text-xl md:text-2xl text-midnight/80 mb-4 max-w-3xl lg:max-w-xl mx-auto lg:mx-0"
+              >
                 MTS Analytics builds the data and AI systems serious ecommerce brands rely on to
                 understand revenue, not just report on it.
-              </p>
-              <p className="text-lg text-midnight/60 mb-8 max-w-2xl lg:max-w-xl mx-auto lg:mx-0">
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="text-lg text-midnight/60 mb-8 max-w-2xl lg:max-w-xl mx-auto lg:mx-0"
+              >
                 Unify spend and performance across channels, fix broken reporting, and unlock
                 conversational and agentic AI on top of a clean, trusted data foundation.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.45 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
+              >
                 <a
                   href="/revenue-intelligence"
-                  className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity text-lg"
+                  className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-lg cursor-pointer"
                 >
                   See Revenue Intelligence Stack
                 </a>
                 <a
                   href="/revenue-intelligence#how-it-works"
-                  className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:border-midnight/40 transition-colors text-lg"
+                  className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:bg-midnight/5 hover:border-midnight/30 transition-all duration-200 text-lg cursor-pointer"
                 >
                   How it works
                 </a>
-              </div>
-              <p className="text-sm text-midnight/50">
+              </motion.div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.55 }}
+                className="text-sm text-midnight/50"
+              >
                 No junior handoffs. You work directly with a senior analytics engineer and architect.
-              </p>
+              </motion.p>
             </div>
-            <div className="hidden lg:flex justify-end">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="hidden lg:flex justify-end"
+            >
               <div className="relative w-full max-w-md">
                 <div className="absolute -inset-4 bg-gradient-to-tr from-slate-blue/30 via-slate-blue/0 to-cyan-400/40 blur-3xl opacity-60" />
-                <div className="relative rounded-2xl overflow-hidden border border-slate-blue/30 bg-midnight shadow-2xl">
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+                  className="relative rounded-2xl overflow-hidden border border-slate-blue/30 bg-midnight shadow-2xl"
+                >
                   <Image
                     src="/home-hero-metrics.svg"
                     alt="Revenue and channel performance overview"
@@ -67,10 +101,10 @@ export default function Home() {
                     className="w-full h-auto"
                     priority
                   />
-                </div>
+                </motion.div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -98,7 +132,7 @@ export default function Home() {
           <div>
             <a
               href="/revenue-intelligence"
-              className="inline-block bg-slate-blue text-white px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
+              className="inline-block bg-slate-blue text-white px-5 py-2 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 whitespace-nowrap cursor-pointer"
             >
               See the Stack
             </a>
@@ -170,12 +204,12 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <MetricCard
             title="10+ years building analytics for e‑commerce and beyond"
-            description="I’ve spent over a decade designing and implementing analytics systems across multiple industries, with a deep focus on e‑commerce and DTC. From ERPs and ecommerce platforms to ad networks and warehouses, I know how to connect the dots."
+            description="I've spent over a decade designing and implementing analytics systems across multiple industries, with a deep focus on e‑commerce and DTC. From ERPs and ecommerce platforms to ad networks and warehouses, I know how to connect the dots."
             delay={0}
           />
           <MetricCard
             title="Senior partner, not a bloated agency"
-            description="You’re not getting a rotating cast of juniors. You work directly with a senior analytics engineer and architect who has led data infrastructure through hyper‑growth, complex reporting requirements, and AI initiatives."
+            description="You're not getting a rotating cast of juniors. You work directly with a senior analytics engineer and architect who has led data infrastructure through hyper‑growth, complex reporting requirements, and AI initiatives."
             delay={0.1}
           />
         </div>
@@ -199,17 +233,17 @@ export default function Home() {
             </p>
             <ul className="text-midnight/80 mb-4 text-lg list-disc pl-5">
               <li>
-                <strong>Conversational analytics:</strong> operators and leaders ask questions in natural language (“What did we spend on Meta vs last year?”) and get answers backed by your warehouse.
+                <strong>Conversational analytics:</strong> operators and leaders ask questions in natural language ("What did we spend on Meta vs last year?") and get answers backed by your warehouse.
               </li>
               <li>
                 <strong>Agentic monitoring:</strong> agents watch for anomalies in spend, conversion, and inventory, and alert the right people—instead of relying on someone to notice a chart.
               </li>
               <li>
-                <strong>Decision support:</strong> playbooks encoded in AI so your team can explore “what if” scenarios without pulling in an analyst every time.
+                <strong>Decision support:</strong> playbooks encoded in AI so your team can explore "what if" scenarios without pulling in an analyst every time.
               </li>
             </ul>
             <p className="text-midnight/80 text-lg">
-              I’ve deployed conversational analytics using tools like Rill and now use agentic AI to automate monitoring and reporting workflows. The pattern is always the same: clean, well‑modeled data first, AI as an accelerator.
+              I've deployed conversational analytics using tools like Rill and now use agentic AI to automate monitoring and reporting workflows. The pattern is always the same: clean, well‑modeled data first, AI as an accelerator.
             </p>
           </div>
         </motion.div>
@@ -228,13 +262,13 @@ export default function Home() {
             Recent wins (anonymized)
           </h2>
           <p className="text-lg text-midnight/60 max-w-2xl mx-auto">
-            Real results from brands and organizations I’ve helped scale with better data and AI.
+            Real results from brands and organizations I've helped scale with better data and AI.
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <CaseStudyCard
             title="Unified marketing data for a multi‑channel DTC brand"
-            challenge="The brand couldn’t trust their numbers—Meta, Google, and GA4 all showed different performance. Fragmented sources led to wasted ad spend and confusion about which campaigns were actually working."
+            challenge="The brand couldn't trust their numbers—Meta, Google, and GA4 all showed different performance. Fragmented sources led to wasted ad spend and confusion about which campaigns were actually working."
             solution="Built a unified data pipeline connecting all sources into a single warehouse of truth. Standardized metrics across channels and implemented identity resolution for actual customer tracking."
             results={[
               'Single source of truth matching actual revenue',
@@ -246,7 +280,7 @@ export default function Home() {
           />
           <CaseStudyCard
             title="Conversational analytics for a non‑technical leadership team"
-            challenge="Leadership spent hours pulling reports and still couldn’t answer basic questions quickly. BI tool adoption was low due to complexity."
+            challenge="Leadership spent hours pulling reports and still couldn't answer basic questions quickly. BI tool adoption was low due to complexity."
             solution="Deployed a secure conversational analytics interface connected to the data warehouse. Stakeholders ask questions in natural language and receive instant, accurate answers."
             results={[
               '80% reduction in time spent pulling reports',
@@ -297,13 +331,13 @@ export default function Home() {
           </h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-midnight/80 mb-4 text-lg">
-              I’m a data engineer and analytics consultant with 10+ years building data infrastructure and reporting for high‑growth organizations, especially in e‑commerce and DTC. I’ve led analytics through scaling phases, managed complex optimization projects, and built the pipelines that power critical business decisions.
+              I'm a data engineer and analytics consultant with 10+ years building data infrastructure and reporting for high‑growth organizations, especially in e‑commerce and DTC. I've led analytics through scaling phases, managed complex optimization projects, and built the pipelines that power critical business decisions.
             </p>
             <p className="text-midnight/80 mb-4 text-lg">
               I started MTS Analytics because I saw the same patterns everywhere: fragmented data sources, conflicting metrics between departments, and infrastructure costs that outpace value. Generic dashboards often fail to answer the specific business questions your team actually has.
             </p>
             <p className="text-midnight/80 text-lg">
-              That’s why MTS Analytics operates as a small, senior‑led data & AI studio. Whether you’re a scaling brand or an established enterprise, we build systems that provide a single source of truth and clarity—so you can make confident decisions based on real data, with AI layered in when it genuinely helps.
+              That's why MTS Analytics operates as a small, senior‑led data & AI studio. Whether you're a scaling brand or an established enterprise, we build systems that provide a single source of truth and clarity—so you can make confident decisions based on real data, with AI layered in when it genuinely helps.
             </p>
           </div>
         </motion.div>
@@ -375,31 +409,14 @@ export default function Home() {
       </section>
 
       {/* Contact / Final CTA Section */}
-      <section id="contact" className="max-w-5xl mx-auto px-6 py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-4">
-            Ready to get serious about your data?
-          </h2>
-          <p className="text-lg text-midnight/70 mb-4">
-            If you're a growth‑stage e‑commerce or DTC brand wrestling with messy data, broken reporting, or unclear ROI, let's talk.
-          </p>
-          <p className="text-sm text-midnight/60 mb-8 max-w-2xl mx-auto">
-            Send a short note about your brand, your current data stack, and what you wish it could do. We’ll reply with next steps and, if it’s a fit, schedule a 30‑minute strategy call.
-          </p>
-          <a
-            href="mailto:artin@mts-analytics.com"
-            className="inline-block bg-slate-blue text-white px-6 py-3 rounded-md font-medium hover:opacity-90 transition-opacity"
-          >
-            Email MTS Analytics
-          </a>
-        </motion.div>
-      </section>
+      <CTASection
+        id="contact"
+        title="Ready to get serious about your data?"
+        description="If you're a growth‑stage ecommerce or DTC brand wrestling with messy data, broken reporting, or unclear ROI — let's talk."
+        subtitle="Send a short note about your brand, your current data stack, and what you wish it could do. We'll reply with next steps and, if it's a fit, schedule a 30‑minute strategy call."
+        buttonText="Email MTS Analytics"
+        buttonHref="mailto:artin@mts-analytics.com"
+      />
     </div>
   )
 }

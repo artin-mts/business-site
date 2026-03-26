@@ -1,0 +1,30 @@
+<svg width="480" height="320" viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="24" fill="#0F172A"/>
+  <rect x="40" y="48" width="120" height="16" rx="8" fill="#1E293B"/>
+  <rect x="40" y="76" width="80" height="10" rx="5" fill="#334155"/>
+  <rect x="40" y="96" width="88" height="10" rx="5" fill="#334155"/>
+
+  <!-- Stack layers -->
+  <g transform="translate(190,56)">
+    <rect x="32" y="0" width="210" height="44" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+    <text x="48" y="22" fill="#E5E7EB" font-family="system-ui, -apple-system, BlinkMacSystemFont" font-size="13" font-weight="600">AI &amp; Revenue Intelligence</text>
+    <text x="48" y="34" fill="#9CA3AF" font-family="system-ui, -apple-system" font-size="11">Slack / UI · Alerts · Decision support</text>
+
+    <rect x="24" y="52" width="210" height="44" rx="8" fill="#020617" stroke="#475569" stroke-width="1"/>
+    <text x="40" y="74" fill="#E5E7EB" font-family="system-ui, -apple-system" font-size="13" font-weight="600">Dashboards &amp; Reporting</text>
+    <text x="40" y="86" fill="#9CA3AF" font-family="system-ui, -apple-system" font-size="11">Rill for growth, finance, ops</text>
+
+    <rect x="16" y="104" width="210" height="44" rx="8" fill="#020617" stroke="#475569" stroke-width="1"/>
+    <text x="32" y="126" fill="#E5E7EB" font-family="system-ui, -apple-system" font-size="13" font-weight="600">Models &amp; Metrics (dbt)</text>
+    <text x="32" y="138" fill="#9CA3AF" font-family="system-ui, -apple-system" font-size="11">Revenue logic · Attribution · LTV</text>
+
+    <rect x="8" y="156" width="210" height="44" rx="8" fill="#020617" stroke="#475569" stroke-width="1"/>
+    <text x="24" y="178" fill="#E5E7EB" font-family="system-ui, -apple-system" font-size="13" font-weight="600">Warehouse (BigQuery)</text>
+    <text x="24" y="190" fill="#9CA3AF" font-family="system-ui, -apple-system" font-size="11">Unified ecommerce, ads, analytics</text>
+  </g>
+
+  <!-- Small sparkline -->
+  <polyline points="52,220 78,210 104,214 130,200 156,196 182,204 208,190" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="208" cy="190" r="4" fill="#38BDF8"/>
+
+</svg>

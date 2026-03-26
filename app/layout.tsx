@@ -1,6 +1,13 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Layout from '@/components/Layout'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-inter',
+})
 
 export const metadata: Metadata = {
   title: 'MTS Analytics | Modern Data Pipelines & AI-Powered Analytics for DTC Brands',
@@ -13,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         {/* Google Tag Manager */}
         <script
@@ -34,7 +41,7 @@ export default function RootLayout({
         />
         {/* End Google Tag Manager */}
       </head>
-      <body>
+      <body className={inter.className}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -50,4 +57,3 @@ export default function RootLayout({
     </html>
   )
 }
-

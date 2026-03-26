@@ -21,7 +21,8 @@ export default function MetricCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="bg-white border border-cool-gray rounded-lg p-6"
+      whileHover={{ y: -3 }}
+      className="bg-white border border-cool-gray border-t-2 border-t-slate-blue rounded-lg p-8 transition-shadow hover:shadow-lg cursor-default"
     >
       <h3 className="text-lg font-semibold text-midnight mb-2">{title}</h3>
       {value && (
@@ -31,4 +32,3 @@ export default function MetricCard({
     </motion.div>
   )
 }
-

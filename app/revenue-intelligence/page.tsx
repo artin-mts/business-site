@@ -15,7 +15,7 @@ export default function RevenueIntelligencePage() {
         </div>
         <a
           href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20Demo"
-          className="bg-slate-blue text-white px-4 py-2 rounded-md text-xs font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
+          className="bg-slate-blue text-white px-4 py-2 rounded-md text-xs font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 active:scale-[0.98] transition-all duration-200 whitespace-nowrap cursor-pointer"
         >
           Book Demo
         </a>
@@ -23,49 +23,83 @@ export default function RevenueIntelligencePage() {
 
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 py-24 md:py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-[1.1fr,0.9fr] gap-10 items-center"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-[1.1fr,0.9fr] gap-10 items-center">
           <div className="text-center md:text-left">
-            <div className="inline-block bg-slate-blue/10 text-slate-blue px-4 py-1 rounded-full text-sm font-medium mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="inline-block bg-slate-blue/10 text-slate-blue px-4 py-1 rounded-full text-sm font-medium mb-6"
+            >
               Premium ecommerce analytics &amp; AI system
-            </div>
-            <h1 className="text-5xl md:text-6xl font-semibold text-midnight mb-6">
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-5xl md:text-6xl font-semibold text-midnight mb-6"
+            >
               See your revenue clearly. Decide in minutes.
-            </h1>
-            <p className="text-xl md:text-2xl text-midnight/80 mb-4 max-w-3xl md:max-w-none mx-auto md:mx-0">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-xl md:text-2xl text-midnight/80 mb-4 max-w-3xl md:max-w-none mx-auto md:mx-0"
+            >
               Revenue Intelligence Stack turns messy, conflicting ecommerce data into one trusted
               view of revenue—and instant answers to what&apos;s happening and why.
-            </p>
-            <p className="text-lg text-midnight/60 mb-8 max-w-2xl md:max-w-none mx-auto md:mx-0">
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="text-lg text-midnight/60 mb-8 max-w-2xl md:max-w-none mx-auto md:mx-0"
+            >
               Built for ecommerce brands doing $5M–$50M+ who are done guessing and ready to make
               confident decisions from numbers they actually trust.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6"
+            >
               <a
                 href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20Demo"
-                className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:opacity-90 transition-opacity text-lg"
+                className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-lg cursor-pointer"
               >
                 Book a Revenue Intelligence Demo
               </a>
               <a
                 href="#how-it-works"
-                className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:border-midnight/40 transition-colors text-lg"
+                className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:bg-midnight/5 hover:border-midnight/30 transition-all duration-200 text-lg cursor-pointer"
               >
                 See how it works
               </a>
-            </div>
-            <p className="text-sm text-midnight/50">
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.55 }}
+              className="text-sm text-midnight/50"
+            >
               No junior handoffs. You work directly with a senior analytics engineer and architect.
-            </p>
+            </motion.p>
           </div>
-          <div className="hidden md:flex justify-end">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="hidden md:flex justify-end"
+          >
             <div className="relative w-full max-w-sm">
               <div className="absolute -inset-4 bg-gradient-to-tr from-slate-blue/30 via-slate-blue/0 to-cyan-400/40 blur-2xl opacity-60" />
-              <div className="relative rounded-2xl overflow-hidden border border-slate-blue/30 bg-midnight shadow-2xl">
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+                className="relative rounded-2xl overflow-hidden border border-slate-blue/30 bg-midnight shadow-2xl"
+              >
                 <Image
                   src="/revenue-intelligence-hero.svg"
                   alt="Revenue Intelligence Stack visual"
@@ -74,10 +108,10 @@ export default function RevenueIntelligencePage() {
                   className="w-full h-auto"
                   priority
                 />
-              </div>
+              </motion.div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Problem */}
@@ -163,7 +197,7 @@ export default function RevenueIntelligencePage() {
                 Stack at a glance
               </div>
               <div className="space-y-2">
-                {[ 
+                {[
                   {
                     label: 'AI & Revenue Intelligence',
                     desc: 'Slack / UI interface, anomaly alerts, decision support',
@@ -215,8 +249,8 @@ export default function RevenueIntelligencePage() {
             How Revenue Intelligence Stack works
           </h2>
           <p className="text-lg text-midnight/60 max-w-2xl mx-auto">
-            A clear, repeatable process to go from &quot;our numbers don&apos;t match&quot; to “we know exactly
-            what&apos;s driving revenue today.”
+            A clear, repeatable process to go from &quot;our numbers don&apos;t match&quot; to "we know exactly
+            what&apos;s driving revenue today."
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -481,7 +515,7 @@ export default function RevenueIntelligencePage() {
       {/* Final CTA */}
       <CTASection
         title="Stop guessing. Start understanding your revenue."
-        description="If you&apos;re running a serious ecommerce brand and you&apos;re still arguing about whose numbers are right, it&apos;s time for a different approach. Revenue Intelligence Stack gives you one source of truth, clear attribution, and instant answers when something changes."
+        description="If you're running a serious ecommerce brand and you're still arguing about whose numbers are right, it's time for a different approach. Revenue Intelligence Stack gives you one source of truth, clear attribution, and instant answers when something changes."
         buttonText="Book a Revenue Intelligence Demo"
         buttonHref="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20Demo"
       />

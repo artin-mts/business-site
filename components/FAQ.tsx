@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 interface FAQItem {
@@ -28,21 +28,34 @@ export default function FAQ({ items }: FAQProps) {
         >
           <button
             onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-            className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-soft-white transition-colors"
+            className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-soft-white transition-colors cursor-pointer"
           >
             <span className="font-semibold text-midnight">{item.question}</span>
-            <span className="text-slate-blue text-xl">
-              {openIndex === idx ? '−' : '+'}
-            </span>
+            <motion.span
+              animate={{ rotate: openIndex === idx ? 45 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="text-slate-blue text-xl flex-shrink-0 ml-4"
+            >
+              +
+            </motion.span>
           </button>
-          {openIndex === idx && (
-            <div className="px-6 pb-4">
-              <p className="text-midnight/70">{item.answer}</p>
-            </div>
-          )}
+          <AnimatePresence initial={false}>
+            {openIndex === idx && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.25, ease: 'easeInOut' }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-4">
+                  <p className="text-midnight/70">{item.answer}</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       ))}
     </div>
   )
 }
-
