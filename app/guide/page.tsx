@@ -13,7 +13,7 @@ export default function Guide() {
   }
 
   return (
-    <div className="bg-soft-white">
+    <div className="bg-soft-white pt-16">
       {/* Hero Section */}
       <section className="max-w-5xl mx-auto px-6 py-24 md:py-32">
         <div className="text-center">

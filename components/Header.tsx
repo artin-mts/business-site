@@ -11,15 +11,15 @@ export default function Header() {
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    setScrolled(latest > 10)
+    setScrolled(latest > 50)
   })
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-cool-gray/50 backdrop-blur-lg transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-soft-white/95 shadow-sm shadow-midnight/5'
-          : 'bg-soft-white/80 shadow-none'
+          ? 'bg-soft-white/95 backdrop-blur-lg shadow-sm shadow-midnight/5 border-b border-cool-gray/50'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-5xl mx-auto px-6 py-4">
@@ -31,6 +31,7 @@ export default function Header() {
               width={200}
               height={32}
               priority
+              className={`transition-all duration-300 ${scrolled ? '' : 'brightness-0 invert'}`}
             />
           </Link>
 
@@ -38,7 +39,9 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-6">
             <Link
               href="/revenue-intelligence"
-              className="text-midnight hover:text-slate-blue transition-colors text-sm"
+              className={`text-sm transition-colors ${
+                scrolled ? 'text-midnight hover:text-slate-blue' : 'text-soft-white/80 hover:text-soft-white'
+              }`}
             >
               Revenue Intelligence Stack
             </Link>
@@ -53,7 +56,7 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-midnight cursor-pointer"
+            className={`md:hidden p-2 cursor-pointer ${scrolled ? 'text-midnight' : 'text-soft-white'}`}
             aria-label="Toggle navigation menu"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -82,9 +85,9 @@ export default function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden border-t border-cool-gray/50"
+            className="md:hidden overflow-hidden"
           >
-            <div className="px-6 py-4 flex flex-col gap-4 bg-soft-white/95 backdrop-blur-lg">
+            <div className="px-6 py-4 flex flex-col gap-4 bg-soft-white/95 backdrop-blur-lg border-t border-cool-gray/50">
               <Link
                 href="/revenue-intelligence"
                 onClick={() => setIsOpen(false)}

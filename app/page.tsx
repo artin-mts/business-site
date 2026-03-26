@@ -5,9 +5,10 @@ import { motion } from 'framer-motion'
 import CTASection from '@/components/CTASection'
 import ServiceCard from '@/components/ServiceCard'
 import MetricCard from '@/components/MetricCard'
-
 import CaseStudyCard from '@/components/CaseStudyCard'
 import FAQ from '@/components/FAQ'
+import TechLogoBar from '@/components/TechLogoBar'
+import AnimatedCounter from '@/components/AnimatedCounter'
 
 const faqItems = [
   {
@@ -48,10 +49,7 @@ const faqSchema = {
   mainEntity: faqItems.map((item) => ({
     '@type': 'Question',
     name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
   })),
 }
 
@@ -59,7 +57,7 @@ const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'MTS Analytics',
-  description: 'Senior-led data & AI studio for ecommerce and DTC brands. Modern data pipelines, unified dashboards, and AI-powered analytics.',
+  description: 'Senior-led data & AI studio for ecommerce and DTC brands.',
   url: 'https://mts-analytics.com',
   areaServed: 'US',
   serviceType: ['Analytics Consulting', 'Data Engineering', 'AI Implementation'],
@@ -69,69 +67,60 @@ const serviceSchema = {
 export default function Home() {
   return (
     <div className="bg-soft-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-blue/10 via-soft-white to-cyan-100/10" />
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr,0.9fr] gap-10 items-center">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+
+      {/* ===== DARK HERO SECTION ===== */}
+      <section className="relative overflow-hidden bg-midnight">
+        {/* Gradient orbs */}
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-slate-blue/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-6 py-24 md:py-36 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr,0.9fr] gap-12 items-center">
             <div className="text-center lg:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 }}
-                className="inline-block bg-slate-blue/10 text-slate-blue px-4 py-1 rounded-full text-sm font-medium mb-6"
+                className="inline-block bg-slate-blue/20 text-slate-blue border border-slate-blue/30 px-4 py-1.5 rounded-full text-sm font-medium mb-6"
               >
-                Data &amp; AI studio for ecommerce and DTC brands
+                Data &amp; AI studio for ecommerce brands
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-5xl md:text-6xl font-semibold text-midnight mb-6"
+                className="text-5xl md:text-6xl lg:text-7xl font-semibold text-soft-white mb-6 leading-[1.1]"
               >
-                Data &amp; AI for brands that are serious about growth.
+                Turn messy data into{' '}
+                <span className="bg-gradient-to-r from-slate-blue via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  revenue clarity.
+                </span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-xl md:text-2xl text-midnight/80 mb-4 max-w-3xl lg:max-w-xl mx-auto lg:mx-0"
+                className="text-xl md:text-2xl text-soft-white/70 mb-8 max-w-xl mx-auto lg:mx-0"
               >
-                MTS Analytics builds the data and AI systems serious ecommerce brands rely on to
-                understand revenue, not just report on it.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.35 }}
-                className="text-lg text-midnight/60 mb-8 max-w-2xl lg:max-w-xl mx-auto lg:mx-0"
-              >
-                Unify spend and performance across channels, fix broken reporting, and unlock
-                conversational and agentic AI on top of a clean, trusted data foundation.
+                We build the analytics and AI systems serious ecommerce brands rely on to understand revenue, not just report on it.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.45 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
               >
                 <a
                   href="/revenue-intelligence"
-                  className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-lg cursor-pointer"
+                  className="bg-slate-blue text-white px-8 py-4 rounded-lg font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-lg cursor-pointer"
                 >
                   See Revenue Intelligence Stack
                 </a>
                 <a
                   href="/revenue-intelligence#how-it-works"
-                  className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:bg-midnight/5 hover:border-midnight/30 transition-all duration-200 text-lg cursor-pointer"
+                  className="bg-soft-white/10 border border-soft-white/20 text-soft-white px-8 py-4 rounded-lg font-medium hover:bg-soft-white/15 hover:border-soft-white/30 transition-all duration-200 text-lg cursor-pointer"
                 >
                   How it works
                 </a>
@@ -139,33 +128,98 @@ export default function Home() {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.55 }}
-                className="text-sm text-midnight/50"
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="text-sm text-soft-white/40"
               >
-                No junior handoffs. You work directly with a senior analytics engineer and architect.
+                No junior handoffs. You work directly with a senior analytics engineer.
               </motion.p>
             </div>
+
+            {/* Hero visual — animated data dashboard */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="hidden lg:flex justify-end"
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="hidden lg:block"
             >
-              <div className="relative w-full max-w-md">
-                <div className="absolute -inset-4 bg-gradient-to-tr from-slate-blue/30 via-slate-blue/0 to-cyan-400/40 blur-3xl opacity-60" />
+              <div className="relative">
+                <div className="absolute -inset-8 bg-gradient-to-tr from-slate-blue/20 via-transparent to-cyan-400/20 blur-3xl opacity-60" />
                 <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-                  className="relative rounded-2xl overflow-hidden border border-slate-blue/30 bg-midnight shadow-2xl"
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
+                  className="relative"
                 >
-                  <Image
-                    src="/home-hero-metrics.svg"
-                    alt="Revenue and channel performance overview"
-                    width={640}
-                    height={400}
-                    className="w-full h-auto"
-                    priority
-                  />
+                  {/* Dashboard mockup */}
+                  <div className="bg-midnight/80 backdrop-blur-xl border border-soft-white/10 rounded-2xl p-6 shadow-2xl shadow-slate-blue/10">
+                    {/* Top metrics row */}
+                    <div className="grid grid-cols-3 gap-3 mb-4">
+                      {[
+                        { label: 'Revenue', value: '$184,920', change: '+18.3%', up: true },
+                        { label: 'ROAS', value: '4.2x', change: '+0.8x', up: true },
+                        { label: 'New Customers', value: '1,247', change: '+12.1%', up: true },
+                      ].map((metric) => (
+                        <div key={metric.label} className="bg-soft-white/5 rounded-xl p-3 border border-soft-white/5">
+                          <div className="text-[10px] text-soft-white/40 mb-1">{metric.label}</div>
+                          <div className="text-lg font-semibold text-soft-white">{metric.value}</div>
+                          <div className={`text-xs font-medium ${metric.up ? 'text-emerald-400' : 'text-rose-400'}`}>
+                            {metric.change}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Chart area */}
+                    <div className="bg-soft-white/5 rounded-xl p-4 border border-soft-white/5">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-xs text-soft-white/40">30-day Revenue Trend</span>
+                        <span className="text-xs text-emerald-400 font-medium">+18.3%</span>
+                      </div>
+                      <svg viewBox="0 0 400 80" className="w-full h-auto">
+                        <defs>
+                          <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#526CFF" stopOpacity="0.3" />
+                            <stop offset="100%" stopColor="#526CFF" stopOpacity="0" />
+                          </linearGradient>
+                        </defs>
+                        <motion.path
+                          d="M0 65 Q30 60 60 55 T120 45 T180 40 T240 30 T300 25 T360 20 T400 15"
+                          fill="none"
+                          stroke="#526CFF"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 2, delay: 0.8, ease: 'easeOut' }}
+                        />
+                        <path
+                          d="M0 65 Q30 60 60 55 T120 45 T180 40 T240 30 T300 25 T360 20 T400 15 V80 H0 Z"
+                          fill="url(#chartGrad)"
+                          opacity="0.5"
+                        />
+                      </svg>
+                    </div>
+                    {/* Channel breakdown */}
+                    <div className="grid grid-cols-4 gap-2 mt-3">
+                      {[
+                        { name: 'Meta', pct: 38, color: 'bg-blue-500' },
+                        { name: 'Google', pct: 28, color: 'bg-emerald-500' },
+                        { name: 'Email', pct: 22, color: 'bg-purple-500' },
+                        { name: 'Direct', pct: 12, color: 'bg-amber-500' },
+                      ].map((ch) => (
+                        <div key={ch.name} className="text-center">
+                          <div className="text-[10px] text-soft-white/40 mb-1">{ch.name}</div>
+                          <div className="w-full bg-soft-white/5 rounded-full h-1.5 mb-1">
+                            <motion.div
+                              className={`${ch.color} h-1.5 rounded-full`}
+                              initial={{ width: 0 }}
+                              animate={{ width: `${ch.pct}%` }}
+                              transition={{ duration: 1.2, delay: 1 + Math.random() * 0.3, ease: 'easeOut' }}
+                            />
+                          </div>
+                          <div className="text-xs text-soft-white/60 font-medium">{ch.pct}%</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
@@ -173,48 +227,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Strip */}
-      <section className="max-w-5xl mx-auto px-6 py-6">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2"
-        >
-          <span className="text-xs text-midnight/40 uppercase tracking-wider font-medium">Trusted by</span>
-          {['National DTC brand, $30M+/yr', 'Multi-channel ecommerce, $15M+/yr', 'High-growth subscription brand', 'Government & public sector'].map((client, i) => (
-            <span key={i} className="text-sm text-midnight/50 border-l border-cool-gray pl-4">
-              {client}
-            </span>
-          ))}
-        </motion.div>
+      {/* ===== TECH LOGO BAR ===== */}
+      <section className="max-w-5xl mx-auto px-6">
+        <TechLogoBar />
       </section>
 
-      {/* Featured Offer: Revenue Intelligence Stack */}
+      {/* ===== FEATURED OFFER ===== */}
       <section className="max-w-5xl mx-auto px-6 pb-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-white border border-slate-blue/15 rounded-lg p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 shadow-sm"
+          className="bg-gradient-to-r from-slate-blue/5 to-cyan-100/10 border border-slate-blue/15 rounded-xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-6"
         >
-          <div className="flex-1 text-left">
-            <p className="text-xs font-semibold tracking-wide uppercase text-slate-blue mb-1">
-              Featured offer
-            </p>
-            <h2 className="text-xl md:text-2xl font-semibold text-midnight mb-1">
-              Revenue Intelligence Stack
-            </h2>
-            <p className="text-sm text-midnight/70 max-w-xl">
-              A complete analytics and AI system for ecommerce brands doing $5M–$50M+ that turns
-              messy data into trusted revenue and instant decisions.
-            </p>
+          <div className="flex items-center gap-4 flex-1">
+            <div className="flex-shrink-0 w-12 h-12 bg-slate-blue/10 rounded-xl flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-blue">
+                <path d="M3 3v18h18" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M7 16l4-8 4 4 5-9" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <div className="text-left">
+              <p className="text-xs font-semibold tracking-wide uppercase text-slate-blue mb-1">Featured offer</p>
+              <h2 className="text-xl md:text-2xl font-semibold text-midnight mb-1">Revenue Intelligence Stack</h2>
+              <p className="text-sm text-midnight/70 max-w-xl">
+                A complete analytics and AI system for ecommerce brands doing $5M–$50M+ that turns messy data into trusted revenue and instant decisions.
+              </p>
+            </div>
           </div>
           <div>
             <a
               href="/revenue-intelligence"
-              className="inline-block bg-slate-blue text-white px-5 py-2 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 whitespace-nowrap cursor-pointer"
+              className="inline-block bg-slate-blue text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 whitespace-nowrap cursor-pointer"
             >
               See the Stack
             </a>
@@ -222,8 +267,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* How We Work Section */}
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      {/* ===== HOW WE WORK (with icons) ===== */}
+      <section className="max-w-5xl mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -235,45 +280,111 @@ export default function Home() {
             How we can work together
           </h2>
           <p className="text-lg text-midnight/60 max-w-2xl mx-auto">
-            Brands that win with data focus on outcomes. Here are the three main ways we help them do it.
+            Brands that win with data focus on outcomes. Here are the three main ways we help.
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <ServiceCard
-            title="1. Analytics Architecture & Roadmap"
-            features={[
-              'Deep dive into your current data stack—sources, warehouse, reporting',
-              'Identify what is working, what is broken, and where data is leaking',
-              'Target architecture and phased implementation plan tuned to your team',
-            ]}
-            description="Start with clarity. You get a senior‑level review of your entire analytics ecosystem and a practical roadmap to a reliable, AI‑ready foundation."
-            delay={0}
-          />
-          <ServiceCard
-            title="2. End‑to‑End Data & Reporting Implementation"
-            features={[
-              'Connect ERPs, ecommerce platforms, and ad networks into a unified warehouse',
-              'Design and implement analytics engineering patterns for modeling and transformation',
-              'Ship dashboards tailored to growth, finance, and operations teams',
-            ]}
-            description="We design and build the full analytics pipeline for your brand so your team stops wrestling with spreadsheets and starts making decisions from one source of truth."
-            delay={0.1}
-          />
-          <ServiceCard
-            title="3. Ongoing Analytics & AI Studio"
-            features={[
-              'Fractional analytics lead without a full‑time hire',
-              'Ongoing maintenance, enhancements, and new reporting use cases',
-              'Advisory and implementation for conversational and agentic AI initiatives',
-            ]}
-            description="For teams that want a long‑term partner. We keep your data stack healthy, evolve your reporting, and layer in AI where it actually drives decisions."
-            delay={0.2}
-          />
+          {[
+            {
+              icon: (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-slate-blue">
+                  <path d="M9 17H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-4m-4 0v4m-4 0h8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M8 9h8M8 13h4" strokeLinecap="round" />
+                </svg>
+              ),
+              title: '1. Analytics Architecture & Roadmap',
+              features: [
+                'Deep dive into your current data stack—sources, warehouse, reporting',
+                'Identify what is working, what is broken, and where data is leaking',
+                'Target architecture and phased implementation plan tuned to your team',
+              ],
+              description: 'Start with clarity. You get a senior‑level review of your entire analytics ecosystem and a practical roadmap to a reliable, AI‑ready foundation.',
+            },
+            {
+              icon: (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-slate-blue">
+                  <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z" />
+                  <path d="M4 9h16M9 4v16" strokeLinecap="round" />
+                  <path d="M13 13l2 2 3-3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              ),
+              title: '2. End‑to‑End Data & Reporting',
+              features: [
+                'Connect ERPs, ecommerce platforms, and ad networks into a unified warehouse',
+                'Design and implement analytics engineering patterns for modeling and transformation',
+                'Ship dashboards tailored to growth, finance, and operations teams',
+              ],
+              description: 'We build the full analytics pipeline so your team stops wrestling with spreadsheets and starts making decisions from one source of truth.',
+            },
+            {
+              icon: (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-slate-blue">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" strokeLinecap="round" />
+                </svg>
+              ),
+              title: '3. Ongoing Analytics & AI Studio',
+              features: [
+                'Fractional analytics lead without a full‑time hire',
+                'Ongoing maintenance, enhancements, and new reporting use cases',
+                'Advisory and implementation for conversational and agentic AI initiatives',
+              ],
+              description: 'For teams that want a long‑term partner. We keep your data stack healthy, evolve your reporting, and layer in AI where it drives decisions.',
+            },
+          ].map((service, i) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -4, boxShadow: '0 12px 40px -10px rgba(82, 108, 255, 0.15)' }}
+              className="bg-white border border-cool-gray border-t-2 border-t-slate-blue rounded-xl p-8 cursor-default"
+            >
+              <div className="w-12 h-12 bg-slate-blue/10 rounded-xl flex items-center justify-center mb-5">
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-midnight mb-3">{service.title}</h3>
+              <ul className="mb-4 space-y-1">
+                {service.features.map((f, j) => (
+                  <li key={j} className="text-sm text-midnight/70">• {f}</li>
+                ))}
+              </ul>
+              <p className="text-sm text-midnight/70">{service.description}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Why MTS Analytics Section */}
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      {/* ===== DARK STATS SECTION ===== */}
+      <section className="relative overflow-hidden bg-midnight py-20">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-blue/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-semibold text-soft-white mb-4">
+              Results that speak for themselves
+            </h2>
+            <p className="text-lg text-soft-white/50 max-w-2xl mx-auto">
+              Real outcomes from brands that invested in proper data infrastructure and AI.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <AnimatedCounter target={10} suffix="+" label="Years building analytics" />
+            <AnimatedCounter target={80} suffix="%" label="Reduction in reporting time" />
+            <AnimatedCounter target={30} suffix=" days" label="To identify waste" />
+            <AnimatedCounter target={10} suffix="+ hrs" label="Saved per week per team" />
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WHY MTS ANALYTICS ===== */}
+      <section className="max-w-5xl mx-auto px-6 py-20">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -297,42 +408,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI Layer Section */}
-      <section className="max-w-5xl mx-auto px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="bg-white border border-cool-gray rounded-lg p-8 md:p-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-6">
-            AI on top of a solid data foundation
-          </h2>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-midnight/80 mb-4 text-lg">
-              Once your data is modeled correctly, AI becomes genuinely useful. Instead of another chatbot demo, we focus on a few high‑leverage use cases that sit on top of your warehouse.
-            </p>
-            <ul className="text-midnight/80 mb-4 text-lg list-disc pl-5">
-              <li>
-                <strong>Conversational analytics:</strong> operators and leaders ask questions in natural language ("What did we spend on Meta vs last year?") and get answers backed by your warehouse.
-              </li>
-              <li>
-                <strong>Agentic monitoring:</strong> agents watch for anomalies in spend, conversion, and inventory, and alert the right people—instead of relying on someone to notice a chart.
-              </li>
-              <li>
-                <strong>Decision support:</strong> playbooks encoded in AI so your team can explore "what if" scenarios without pulling in an analyst every time.
-              </li>
-            </ul>
-            <p className="text-midnight/80 text-lg">
-              I've deployed conversational analytics using tools like Rill and now use agentic AI to automate monitoring and reporting workflows. The pattern is always the same: clean, well‑modeled data first, AI as an accelerator.
-            </p>
-          </div>
-        </motion.div>
+      {/* ===== AI SECTION (dark) ===== */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-midnight via-midnight to-slate-blue/20 py-20">
+        <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr,0.8fr] gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-semibold text-soft-white mb-6">
+                  AI on top of a solid data foundation
+                </h2>
+                <p className="text-soft-white/70 mb-6 text-lg">
+                  Once your data is modeled correctly, AI becomes genuinely useful. We focus on high‑leverage use cases on top of your warehouse:
+                </p>
+                <div className="space-y-4">
+                  {[
+                    { icon: '💬', title: 'Conversational analytics', desc: 'Ask questions in natural language and get answers backed by your warehouse.' },
+                    { icon: '🔔', title: 'Agentic monitoring', desc: 'Agents watch for anomalies in spend, conversion, and inventory and alert the right people.' },
+                    { icon: '🧭', title: 'Decision support', desc: 'Playbooks encoded in AI so your team can explore scenarios without an analyst.' },
+                  ].map((item) => (
+                    <div key={item.title} className="flex gap-4 items-start">
+                      <div className="w-10 h-10 bg-soft-white/10 rounded-lg flex items-center justify-center flex-shrink-0 text-lg">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-soft-white font-semibold mb-1">{item.title}</h3>
+                        <p className="text-soft-white/60 text-sm">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* AI Visual */}
+              <div className="hidden lg:block">
+                <div className="bg-soft-white/5 backdrop-blur-sm border border-soft-white/10 rounded-2xl p-6">
+                  <div className="text-xs text-soft-white/40 mb-3">Revenue Intelligence Interface</div>
+                  <div className="space-y-3">
+                    <div className="bg-slate-blue/20 text-soft-white/80 text-sm rounded-lg rounded-bl-none px-4 py-3 max-w-[85%]">
+                      Why is revenue down today compared to last Tuesday?
+                    </div>
+                    <div className="bg-soft-white/10 text-soft-white/80 text-sm rounded-lg rounded-br-none px-4 py-3 ml-auto max-w-[85%]">
+                      <p className="mb-2">Revenue is down 12% ($22.4k) vs last Tuesday. Key drivers:</p>
+                      <ul className="text-xs text-soft-white/60 space-y-1">
+                        <li>• Meta CPA up 34% — new creative underperforming</li>
+                        <li>• Email revenue flat — Klaviyo flow paused since Monday</li>
+                        <li>• Google stable — ROAS holding at 3.8x</li>
+                      </ul>
+                    </div>
+                    <div className="bg-slate-blue/20 text-soft-white/80 text-sm rounded-lg rounded-bl-none px-4 py-3 max-w-[85%]">
+                      Which Meta creatives should we pause?
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      {/* ===== CASE STUDIES ===== */}
+      <section className="max-w-5xl mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -350,100 +490,97 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <CaseStudyCard
             title="Unified marketing data for a multi‑channel DTC brand"
-            challenge="The brand couldn't trust their numbers—Meta, Google, and GA4 all showed different performance. Fragmented sources led to wasted ad spend and confusion about which campaigns were actually working."
-            solution="Built a unified data pipeline connecting all sources into a single warehouse of truth. Standardized metrics across channels and implemented identity resolution for actual customer tracking."
+            challenge="The brand couldn't trust their numbers—Meta, Google, and GA4 all showed different performance."
+            solution="Built a unified data pipeline connecting all sources into a single warehouse of truth."
             results={[
               'Single source of truth matching actual revenue',
-              'Noticed and fixed waste in underperforming campaigns within weeks',
+              'Fixed waste in underperforming campaigns within weeks',
               'Automated daily reporting replaced 10+ hours/week of manual work',
-              'Optimization focused on profit, not just clicks and impressions',
             ]}
             delay={0}
           />
           <CaseStudyCard
-            title="Conversational analytics for a non‑technical leadership team"
-            challenge="Leadership spent hours pulling reports and still couldn't answer basic questions quickly. BI tool adoption was low due to complexity."
-            solution="Deployed a secure conversational analytics interface connected to the data warehouse. Stakeholders ask questions in natural language and receive instant, accurate answers."
+            title="Conversational analytics for non‑technical leadership"
+            challenge="Leadership spent hours pulling reports and still couldn't answer basic questions quickly."
+            solution="Deployed a secure conversational analytics interface connected to the data warehouse."
             results={[
               '80% reduction in time spent pulling reports',
               'High adoption across non‑technical teams',
-              'Anomaly alerts caught issues significantly faster',
               'Executives get answers in minutes instead of waiting on analysts',
             ]}
             delay={0.1}
           />
           <CaseStudyCard
-            title="Subscription forecasting for supply chain and inventory"
-            challenge="A DTC subscription brand struggled with inventory forecasting. Manual Excel models were inaccurate, leading to stockouts during peak seasons and overstock during slower periods."
-            solution="Built automated forecasting using historical cohorts, seasonality, and churn patterns. Integrated with 3PL systems for automated reorder recommendations."
+            title="Subscription forecasting for supply chain"
+            challenge="Manual Excel models were inaccurate, leading to stockouts and overstock."
+            solution="Built automated forecasting using historical cohorts, seasonality, and churn patterns."
             results={[
               'Data freshness went from monthly to daily',
               '20+ hours saved per month on manual forecasting',
               'Reduced stockouts during key promotions',
-              'Improved cash flow via better inventory planning',
             ]}
             delay={0.2}
           />
           <CaseStudyCard
-            title="Modern data stack and AI layer for a high‑growth organization"
-            challenge="The team struggled with fragmented ingestion and stale reporting. Manual spreadsheet flows prevented timely decisions and blocked AI initiatives."
-            solution="Architected a full modern data stack: automated ingestion (ELT), robust transformation layer, cloud warehousing, and a conversational AI interface for end‑users."
+            title="Modern data stack for a high‑growth organization"
+            challenge="Fragmented ingestion and stale reporting blocked timely decisions and AI initiatives."
+            solution="Architected full modern data stack with automated ingestion, transformation, and conversational AI."
             results={[
               'Fully automated pipeline from source to insight',
               'Reporting latency reduced from days to minutes',
-              'Self‑serve analytics enabled for dozens of users',
-              'Foundation established for advanced predictive modeling',
+              'Foundation for advanced predictive modeling',
             ]}
             delay={0.3}
           />
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      {/* ===== ABOUT (with visual layout) ===== */}
+      <section className="max-w-5xl mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-white border border-cool-gray rounded-lg p-8 md:p-12"
+          className="bg-white border border-cool-gray rounded-xl p-8 md:p-12"
         >
-          <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-6">
-            About MTS Analytics
-          </h2>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-midnight/80 mb-4 text-lg">
-              I'm a data engineer and analytics consultant with 10+ years building data infrastructure and reporting for high‑growth organizations, especially in e‑commerce and DTC. I've led analytics through scaling phases, managed complex optimization projects, and built the pipelines that power critical business decisions.
-            </p>
-            <p className="text-midnight/80 mb-4 text-lg">
-              I started MTS Analytics because I saw the same patterns everywhere: fragmented data sources, conflicting metrics between departments, and infrastructure costs that outpace value. Generic dashboards often fail to answer the specific business questions your team actually has.
-            </p>
-            <p className="text-midnight/80 text-lg">
-              That's why MTS Analytics operates as a small, senior‑led data & AI studio. Whether you're a scaling brand or an established enterprise, we build systems that provide a single source of truth and clarity—so you can make confident decisions based on real data, with AI layered in when it genuinely helps.
-            </p>
+          <div className="flex flex-col md:flex-row gap-8 items-start">
+            <div className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-slate-blue to-blue-400 rounded-2xl flex items-center justify-center">
+              <span className="text-2xl font-bold text-white">AM</span>
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-4">About MTS Analytics</h2>
+              <p className="text-midnight/80 mb-4 text-lg">
+                I'm a data engineer and analytics consultant with 10+ years building data infrastructure and reporting for high‑growth organizations, especially in e‑commerce and DTC.
+              </p>
+              <p className="text-midnight/80 mb-4 text-lg">
+                I started MTS Analytics because I saw the same patterns everywhere: fragmented data sources, conflicting metrics, and infrastructure costs that outpace value.
+              </p>
+              <p className="text-midnight/80 text-lg">
+                That's why MTS Analytics operates as a small, senior‑led data & AI studio — building systems that provide a single source of truth so you can make confident decisions.
+              </p>
+            </div>
           </div>
         </motion.div>
       </section>
 
-      {/* Government & Contractors Section */}
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      {/* ===== GOVERNMENT ===== */}
+      <section className="max-w-5xl mx-auto px-6 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-white border border-cool-gray rounded-lg p-8"
+          className="bg-white border border-cool-gray rounded-xl p-8"
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-midnight mb-4">
-            Government & contractors
-          </h2>
+          <h2 className="text-2xl md:text-3xl font-semibold text-midnight mb-4">Government & contractors</h2>
           <p className="text-midnight/80 text-lg">
-            MTS Analytics is registered in SAM.gov and available for analytics and data infrastructure work with government contractors and public‑sector projects, typically as a subcontractor: designing reporting, integrating systems, and advising on AI initiatives.
+            MTS Analytics is registered in SAM.gov and available for analytics and data infrastructure work with government contractors and public‑sector projects.
           </p>
         </motion.div>
       </section>
 
-      {/* FAQ Section */}
+      {/* ===== FAQ ===== */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -457,12 +594,12 @@ export default function Home() {
         <FAQ items={faqItems} />
       </section>
 
-      {/* Contact / Final CTA Section */}
+      {/* ===== FINAL CTA ===== */}
       <CTASection
         id="contact"
         title="Ready to get serious about your data?"
         description="If you're a growth‑stage ecommerce or DTC brand wrestling with messy data, broken reporting, or unclear ROI — let's talk."
-        subtitle="Send a short note about your brand, your current data stack, and what you wish it could do. We'll reply with next steps and, if it's a fit, schedule a 30‑minute strategy call."
+        subtitle="Send a short note about your brand, your current data stack, and what you wish it could do. We'll reply with next steps."
         buttonText="Email MTS Analytics"
         buttonHref="mailto:artin@mts-analytics.com"
       />

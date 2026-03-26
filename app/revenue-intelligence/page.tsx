@@ -44,7 +44,7 @@ const layerVariants = {
 
 export default function RevenueIntelligencePage() {
   return (
-    <div className="bg-soft-white relative">
+    <div className="bg-soft-white relative pt-16">
       {/* Sticky mobile CTA */}
       <div className="fixed inset-x-0 bottom-0 z-30 bg-white/95 border-t border-cool-gray px-4 py-3 flex items-center justify-between gap-3 md:hidden backdrop-blur-sm">
         <div className="text-xs text-midnight/70">
