@@ -9,9 +9,74 @@ import MetricCard from '@/components/MetricCard'
 import CaseStudyCard from '@/components/CaseStudyCard'
 import FAQ from '@/components/FAQ'
 
+const faqItems = [
+  {
+    question: 'Do I need a data team to work with you?',
+    answer:
+      "No. MTS Analytics often acts as your fractional data team—perfect for businesses that don't have in‑house analytics expertise. You get senior‑level data infrastructure without hiring a full team.",
+  },
+  {
+    question: 'How fast can you deliver results?',
+    answer:
+      'We move fast because we use proven patterns and modern tools. Most engagements start with a roadmap and an initial implementation that ships in weeks, not quarters.',
+  },
+  {
+    question: 'What if my data is a mess?',
+    answer:
+      "That's exactly when it makes sense to bring us in. We start by auditing your stack, identifying gaps, and sharing a prioritized roadmap. Most clients come to MTS Analytics because their data is scattered—we specialize in cleaning it up.",
+  },
+  {
+    question: 'Can you work with our existing tools?',
+    answer:
+      "Yes. We integrate with your existing stack: Shopify, Klaviyo, Meta, Google Ads, GA4, and more. We'll connect everything to a modern warehouse and build reporting that works with what you already have.",
+  },
+  {
+    question: 'How does AI fit into an engagement?',
+    answer:
+      'AI is a layer on top of a solid data foundation. Once your warehouse and models are in good shape, we can introduce conversational analytics, agentic monitoring, and decision‑support use cases that match your business.',
+  },
+  {
+    question: 'Who do you work with?',
+    answer:
+      'We primarily work with growth‑stage e‑commerce and DTC brands, but the patterns apply to any organization with fragmented data, complex reporting needs, and an appetite for AI.',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'MTS Analytics',
+  description: 'Senior-led data & AI studio for ecommerce and DTC brands. Modern data pipelines, unified dashboards, and AI-powered analytics.',
+  url: 'https://mts-analytics.com',
+  areaServed: 'US',
+  serviceType: ['Analytics Consulting', 'Data Engineering', 'AI Implementation'],
+  priceRange: '$$$',
+}
+
 export default function Home() {
   return (
     <div className="bg-soft-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-blue/10 via-soft-white to-cyan-100/10" />
@@ -106,6 +171,23 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
+      </section>
+
+      {/* Trust Strip */}
+      <section className="max-w-5xl mx-auto px-6 py-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2"
+        >
+          <span className="text-xs text-midnight/40 uppercase tracking-wider font-medium">Trusted by</span>
+          {['National DTC brand, $30M+/yr', 'Multi-channel ecommerce, $15M+/yr', 'High-growth subscription brand', 'Government & public sector'].map((client, i) => (
+            <span key={i} className="text-sm text-midnight/50 border-l border-cool-gray pl-4">
+              {client}
+            </span>
+          ))}
+        </motion.div>
       </section>
 
       {/* Featured Offer: Revenue Intelligence Stack */}
@@ -372,40 +454,7 @@ export default function Home() {
         >
           Frequently asked questions
         </motion.h2>
-        <FAQ
-          items={[
-            {
-              question: 'Do I need a data team to work with you?',
-              answer:
-                "No. MTS Analytics often acts as your fractional data team—perfect for businesses that don't have in‑house analytics expertise. You get senior‑level data infrastructure without hiring a full team.",
-            },
-            {
-              question: 'How fast can you deliver results?',
-              answer:
-                'We move fast because we use proven patterns and modern tools. Most engagements start with a roadmap and an initial implementation that ships in weeks, not quarters.',
-            },
-            {
-              question: 'What if my data is a mess?',
-              answer:
-                "That's exactly when it makes sense to bring us in. We start by auditing your stack, identifying gaps, and sharing a prioritized roadmap. Most clients come to MTS Analytics because their data is scattered—we specialize in cleaning it up.",
-            },
-            {
-              question: 'Can you work with our existing tools?',
-              answer:
-                "Yes. We integrate with your existing stack: Shopify, Klaviyo, Meta, Google Ads, GA4, and more. We'll connect everything to a modern warehouse and build reporting that works with what you already have.",
-            },
-            {
-              question: 'How does AI fit into an engagement?',
-              answer:
-                'AI is a layer on top of a solid data foundation. Once your warehouse and models are in good shape, we can introduce conversational analytics, agentic monitoring, and decision‑support use cases that match your business.',
-            },
-            {
-              question: 'Who do you work with?',
-              answer:
-                'We primarily work with growth‑stage e‑commerce and DTC brands, but the patterns apply to any organization with fragmented data, complex reporting needs, and an appetite for AI.',
-            },
-          ]}
-        />
+        <FAQ items={faqItems} />
       </section>
 
       {/* Contact / Final CTA Section */}

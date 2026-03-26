@@ -3,13 +3,25 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const { scrollY } = useScroll()
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setScrolled(latest > 10)
+  })
 
   return (
-    <header className="sticky top-0 z-50 border-b border-cool-gray/50 bg-soft-white/80 backdrop-blur-lg">
+    <header
+      className={`sticky top-0 z-50 border-b border-cool-gray/50 backdrop-blur-lg transition-all duration-300 ${
+        scrolled
+          ? 'bg-soft-white/95 shadow-sm shadow-midnight/5'
+          : 'bg-soft-white/80 shadow-none'
+      }`}
+    >
       <div className="max-w-5xl mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           <Link href="/" className="flex items-center">

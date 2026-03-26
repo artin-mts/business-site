@@ -22,6 +22,25 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'MTS Analytics',
+              url: 'https://mts-analytics.com',
+              description: 'Senior-led data & AI studio for ecommerce and DTC brands. Modern data pipelines, unified dashboards, and AI-powered analytics.',
+              contactPoint: {
+                '@type': 'ContactPoint',
+                email: 'artin@mts-analytics.com',
+                contactType: 'sales',
+              },
+              areaServed: 'US',
+            }),
+          }}
+        />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{

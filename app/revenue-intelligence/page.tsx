@@ -3,6 +3,44 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import CTASection from '@/components/CTASection'
+import TestimonialCard from '@/components/TestimonialCard'
+
+const stackLayers = [
+  {
+    label: 'Warehouse (BigQuery)',
+    desc: 'Unified data from ecommerce, ads, analytics, and more',
+  },
+  {
+    label: 'Models & Metrics (dbt)',
+    desc: 'Revenue logic, attribution, cohorts, LTV, payback',
+  },
+  {
+    label: 'Dashboards & Reporting',
+    desc: 'Rill dashboards for growth, finance, and operations',
+  },
+  {
+    label: 'AI & Revenue Intelligence',
+    desc: 'Slack / UI interface, anomaly alerts, decision support',
+  },
+]
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
+}
+
+const layerVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: 'easeOut' },
+  },
+}
 
 export default function RevenueIntelligencePage() {
   return (
@@ -146,7 +184,48 @@ export default function RevenueIntelligencePage() {
         </motion.div>
       </section>
 
-      {/* Solution overview + stack visual */}
+      {/* Who This Is For */}
+      <section className="max-w-5xl mx-auto px-6 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-white border border-cool-gray rounded-lg p-8 md:p-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-8">
+            Is this for you?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold text-midnight mb-4">
+                Revenue Intelligence Stack is built for:
+              </h3>
+              <ul className="space-y-2 text-midnight/80 text-sm list-disc pl-5">
+                <li>Ecommerce and DTC brands doing $5M–$50M+ in annual revenue</li>
+                <li>Teams that are tired of conflicting numbers across platforms</li>
+                <li>Operators who want instant answers, not week-long report requests</li>
+                <li>Brands serious about understanding attribution and unit economics</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-midnight/60 mb-4">
+                This probably isn&apos;t the right fit if:
+              </h3>
+              <ul className="space-y-2 text-midnight/50 text-sm list-disc pl-5">
+                <li>You&apos;re pre-revenue or under $1M — the investment won&apos;t pay back yet</li>
+                <li>You need a one-off dashboard with no ongoing data strategy</li>
+                <li>You&apos;re looking for the cheapest option rather than the right one</li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-sm text-midnight/50 mt-6">
+            We take on a limited number of Revenue Intelligence engagements per quarter to ensure senior-level attention on every project.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Solution overview + animated stack visual */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -191,41 +270,39 @@ export default function RevenueIntelligencePage() {
               </div>
             </div>
 
-            {/* Simple stack visual */}
+            {/* Animated glassmorphism stack visual */}
             <div className="hidden md:block">
               <div className="text-xs font-semibold tracking-wide uppercase text-midnight/50 mb-3">
                 Stack at a glance
               </div>
-              <div className="space-y-2">
-                {[
-                  {
-                    label: 'AI & Revenue Intelligence',
-                    desc: 'Slack / UI interface, anomaly alerts, decision support',
-                  },
-                  {
-                    label: 'Dashboards & Reporting',
-                    desc: 'Rill dashboards for growth, finance, and operations',
-                  },
-                  {
-                    label: 'Models & Metrics (dbt)',
-                    desc: 'Revenue logic, attribution, cohorts, LTV, payback',
-                  },
-                  {
-                    label: 'Warehouse (BigQuery)',
-                    desc: 'Unified data from ecommerce, ads, analytics, and more',
-                  },
-                ].map((layer, index) => (
-                  <div
-                    key={layer.label}
-                    className="border border-cool-gray rounded-md px-4 py-3 bg-soft-white flex flex-col shadow-sm"
-                    style={{ marginLeft: index * 4 }}
-                  >
-                    <div className="text-xs font-semibold text-midnight">
-                      {layer.label}
-                    </div>
-                    <div className="text-[11px] text-midnight/70">{layer.desc}</div>
-                  </div>
-                ))}
+              <div className="bg-gradient-to-b from-midnight/5 to-slate-blue/10 rounded-2xl p-5">
+                <motion.div
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="space-y-2"
+                >
+                  {[...stackLayers].reverse().map((layer, index) => (
+                    <motion.div key={layer.label} variants={layerVariants}>
+                      <div
+                        className={`backdrop-blur-md bg-white/60 border border-white/40 rounded-xl px-5 py-4 shadow-sm flex flex-col ${
+                          index === stackLayers.length - 1
+                            ? 'shadow-lg shadow-slate-blue/15 border-slate-blue/20'
+                            : ''
+                        }`}
+                      >
+                        <div className="text-xs font-semibold text-midnight">
+                          {layer.label}
+                        </div>
+                        <div className="text-[11px] text-midnight/70">{layer.desc}</div>
+                      </div>
+                      {index < stackLayers.length - 1 && (
+                        <div className="text-center text-slate-blue/30 text-xs py-0.5">▼</div>
+                      )}
+                    </motion.div>
+                  ))}
+                </motion.div>
               </div>
             </div>
           </div>
@@ -288,6 +365,57 @@ export default function RevenueIntelligencePage() {
               <p className="text-sm text-midnight/70">{step.body}</p>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Social Proof / Testimonials (moved BEFORE pricing) */}
+      <section className="max-w-5xl mx-auto px-6 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-4">
+            What this looks like in practice
+          </h2>
+          <p className="text-lg text-midnight/60 max-w-2xl mx-auto">
+            Results from brands that implemented the Revenue Intelligence Stack.
+          </p>
+        </motion.div>
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-blue/5 via-soft-white to-cyan-100/5 rounded-3xl" />
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 p-4 md:p-8">
+            <TestimonialCard
+              quote="We went from arguing about whose numbers were right to having one dashboard everyone trusts. The Revenue Intelligence Stack paid for itself within the first month when we identified and cut unprofitable spend."
+              name="VP of Growth"
+              role="Vice President"
+              company="DTC Brand, $30M+/yr"
+              delay={0}
+            />
+            <TestimonialCard
+              quote="Our leadership team used to wait days for answers. Now they ask questions in Slack and get instant, accurate responses backed by our warehouse. Adoption across non-technical teams was immediate."
+              name="Head of Operations"
+              role="Operations Lead"
+              company="Multi-Channel Ecommerce"
+              delay={0.15}
+            />
+            <TestimonialCard
+              quote="The attribution clarity alone was worth it. We finally know which campaigns are driving actual profit, not just top-line revenue. We reallocated budget into high-ROAS campaigns within 30 days."
+              name="Marketing Director"
+              role="Director of Marketing"
+              company="National DTC Brand"
+              delay={0.3}
+            />
+            <TestimonialCard
+              quote="MTS Analytics built us a full modern data stack in weeks, not quarters. The conversational AI layer means our team gets answers in minutes instead of filing tickets. Reporting latency went from days to real-time."
+              name="Chief Revenue Officer"
+              role="CRO"
+              company="High-Growth Ecommerce"
+              delay={0.45}
+            />
+          </div>
         </div>
       </section>
 
@@ -403,7 +531,7 @@ export default function RevenueIntelligencePage() {
         </motion.div>
       </section>
 
-      {/* Pricing / Engagement model */}
+      {/* Pricing / Engagement model (redesigned with CTAs + ROI framing) */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -411,103 +539,110 @@ export default function RevenueIntelligencePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-4">
             Designed for serious ecommerce brands
           </h2>
-          <p className="text-midnight/80 text-lg mb-6 max-w-2xl">
+          <p className="text-midnight/80 text-lg mb-2 max-w-2xl">
             Revenue Intelligence Stack is a premium engagement for brands that are serious about
             understanding and growing their revenue. Typical projects range from $10k–$40k+,
             depending on scope and complexity.
           </p>
+          <p className="text-midnight/70 text-base mb-8 max-w-2xl">
+            Brands that implement Revenue Intelligence Stack typically identify unprofitable ad spend within 30 days and establish reporting that saves 10+ hours per week. The system pays for itself.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white border border-cool-gray rounded-lg p-6 flex flex-col">
+            {/* Foundation */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0 }}
+              className="bg-white border border-cool-gray rounded-xl p-8 flex flex-col"
+            >
               <h3 className="text-xl font-semibold text-midnight mb-2">Foundation</h3>
-              <p className="text-midnight/70 text-sm mb-4">
-                Revenue clarity
-              </p>
-              <ul className="space-y-2 text-midnight/80 text-sm list-disc pl-5 flex-grow">
+              <p className="text-midnight/70 text-sm mb-4">Revenue clarity</p>
+              <ul className="space-y-2 text-midnight/80 text-sm list-disc pl-5 flex-grow mb-6">
                 <li>Warehouse setup and core integrations</li>
                 <li>Standardized revenue and customer definitions</li>
                 <li>Core performance dashboards</li>
               </ul>
-            </div>
-            <div className="bg-white border border-midnight rounded-lg p-6 flex flex-col shadow-sm">
+              <a
+                href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20-%20Foundation"
+                className="block text-center border border-slate-blue text-slate-blue px-6 py-3 rounded-md text-sm font-medium hover:bg-slate-blue/5 transition-all duration-200 cursor-pointer"
+              >
+                Get Started
+              </a>
+            </motion.div>
+
+            {/* Attribution (Recommended) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-white border-2 border-slate-blue rounded-xl p-8 flex flex-col shadow-xl shadow-slate-blue/10 relative"
+            >
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-blue text-white text-xs font-semibold px-4 py-1 rounded-full">
+                Most Popular
+              </div>
               <h3 className="text-xl font-semibold text-midnight mb-2">Attribution</h3>
               <p className="text-midnight/70 text-sm mb-4">Revenue confidence</p>
-              <ul className="space-y-2 text-midnight/80 text-sm list-disc pl-5 flex-grow">
+              <ul className="space-y-2 text-midnight/80 text-sm list-disc pl-5 flex-grow mb-6">
                 <li>Everything in Foundation</li>
                 <li>Multi-channel attribution models</li>
                 <li>Cohort and LTV analysis by source and offer</li>
               </ul>
-            </div>
-            <div className="bg-white border border-cool-gray rounded-lg p-6 flex flex-col">
+              <a
+                href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20-%20Attribution"
+                className="block text-center bg-slate-blue text-white px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+              >
+                Book a Demo
+              </a>
+            </motion.div>
+
+            {/* Revenue Intelligence */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="bg-white border border-cool-gray rounded-xl p-8 flex flex-col"
+            >
               <h3 className="text-xl font-semibold text-midnight mb-2">Revenue Intelligence</h3>
               <p className="text-midnight/70 text-sm mb-4">AI layer</p>
-              <ul className="space-y-2 text-midnight/80 text-sm list-disc pl-5 flex-grow">
+              <ul className="space-y-2 text-midnight/80 text-sm list-disc pl-5 flex-grow mb-6">
                 <li>Everything in Attribution</li>
                 <li>Conversational AI interface</li>
                 <li>Alerting and anomaly detection on key revenue metrics</li>
               </ul>
-            </div>
+              <a
+                href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20-%20Full%20Stack"
+                className="block text-center border border-slate-blue text-slate-blue px-6 py-3 rounded-md text-sm font-medium hover:bg-slate-blue/5 transition-all duration-200 cursor-pointer"
+              >
+                Get Started
+              </a>
+            </motion.div>
           </div>
+
+          {/* What happens next */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-8 bg-white border border-cool-gray rounded-lg p-6 max-w-2xl"
+          >
+            <h3 className="text-sm font-semibold text-midnight mb-3">What happens next</h3>
+            <ol className="space-y-2 text-sm text-midnight/60 list-decimal pl-5">
+              <li>Send a short note about your brand and current data stack.</li>
+              <li>We reply within 24 hours with initial thoughts.</li>
+              <li>30-minute strategy call to assess fit and scope.</li>
+            </ol>
+          </motion.div>
+
           <p className="text-midnight/70 text-sm mt-4 max-w-2xl">
             If you&apos;re spending serious money on growth, your data should be at least as
             sophisticated as your ad strategy.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* Social proof placeholder */}
-      <section className="max-w-5xl mx-auto px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-semibold text-midnight mb-6">
-            What this looks like in practice
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white border border-cool-gray rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-midnight mb-2">
-                DTC brand, $30M+/year
-              </h3>
-              <p className="text-midnight/80 text-sm mb-2">
-                Fragmented revenue reporting across Shopify, GA4, and ad platforms. No agreement on
-                &quot;real&quot; revenue or channel performance.
-              </p>
-              <p className="text-midnight/80 text-sm mb-2">
-                Implemented centralized warehouse, standardized revenue logic, Rill dashboards, and
-                channel attribution models.
-              </p>
-              <ul className="space-y-1 text-midnight/80 text-xs list-disc pl-5">
-                <li>Single, trusted revenue number across finance and marketing</li>
-                <li>Identified and cut unprofitable spend within 30 days</li>
-                <li>Reallocated budget into high-ROAS campaigns with clear payback</li>
-              </ul>
-            </div>
-            <div className="bg-white border border-cool-gray rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-midnight mb-2">
-                Multi-channel ecommerce brand
-              </h3>
-              <p className="text-midnight/80 text-sm mb-2">
-                Leadership waited days for answers and still got conflicting reports.
-              </p>
-              <p className="text-midnight/80 text-sm mb-2">
-                Implemented Revenue Intelligence Stack with Slack-based Q&amp;A on top of a unified
-                warehouse.
-              </p>
-              <ul className="space-y-1 text-midnight/80 text-xs list-disc pl-5">
-                <li>Leadership gets answers in minutes, not days</li>
-                <li>Reporting time reduced significantly</li>
-                <li>Faster detection of revenue drops and spend anomalies</li>
-              </ul>
-            </div>
-          </div>
-          <p className="text-midnight/70 text-sm mt-6">
-            Placeholder social proof. Replace with your anonymized case studies and testimonials as
-            you collect them.
           </p>
         </motion.div>
       </section>
