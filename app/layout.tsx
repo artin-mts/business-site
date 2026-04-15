@@ -12,6 +12,25 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'MTS Analytics | Modern Data Pipelines & AI-Powered Analytics for DTC Brands',
   description: 'Stop pulling reports from 5 different platforms. Get one source of truth that actually works. Modern data pipelines, unified dashboards, and AI that answers real questions for DTC brands.',
+  metadataBase: new URL('https://mts-analytics.com'),
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    title: 'MTS Analytics | Modern Data Pipelines & AI-Powered Analytics for DTC Brands',
+    description: 'Stop pulling reports from 5 different platforms. Get one source of truth that actually works.',
+    url: 'https://mts-analytics.com',
+    siteName: 'MTS Analytics',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
