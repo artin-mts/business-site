@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import CTASection from '@/components/CTASection'
 import TestimonialCard from '@/components/TestimonialCard'
+import CalendlyLink from '@/components/CalendlyLink'
+import { CALENDLY_URL } from '@/lib/cta'
 
 const stackLayers = [
   {
@@ -51,12 +53,12 @@ export default function RevenueIntelligencePage() {
           <span className="font-semibold text-midnight">Revenue Intelligence Stack</span>
           <span className="hidden xs:inline"> · See your revenue clearly.</span>
         </div>
-        <a
-          href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20Demo"
+        <CalendlyLink
+          label="sticky-mobile-bar"
           className="bg-slate-blue text-white px-4 py-2 rounded-md text-xs font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 active:scale-[0.98] transition-all duration-200 whitespace-nowrap cursor-pointer"
         >
           Book Demo
-        </a>
+        </CalendlyLink>
       </div>
 
       {/* Hero */}
@@ -103,12 +105,12 @@ export default function RevenueIntelligencePage() {
               transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6"
             >
-              <a
-                href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20Demo"
+              <CalendlyLink
+                label="hero-primary"
                 className="bg-slate-blue text-white px-8 py-4 rounded-md font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-lg cursor-pointer"
               >
                 Book a Revenue Intelligence Demo
-              </a>
+              </CalendlyLink>
               <a
                 href="#how-it-works"
                 className="bg-transparent border border-midnight/20 text-midnight px-8 py-4 rounded-md font-medium hover:bg-midnight/5 hover:border-midnight/30 transition-all duration-200 text-lg cursor-pointer"
@@ -566,12 +568,12 @@ export default function RevenueIntelligencePage() {
                 <li>Standardized revenue and customer definitions</li>
                 <li>Core performance dashboards</li>
               </ul>
-              <a
-                href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20-%20Foundation"
+              <CalendlyLink
+                label="pricing-foundation"
                 className="block text-center border border-slate-blue text-slate-blue px-6 py-3 rounded-md text-sm font-medium hover:bg-slate-blue/5 transition-all duration-200 cursor-pointer"
               >
                 Get Started
-              </a>
+              </CalendlyLink>
             </motion.div>
 
             {/* Attribution (Recommended) */}
@@ -592,12 +594,12 @@ export default function RevenueIntelligencePage() {
                 <li>Multi-channel attribution models</li>
                 <li>Cohort and LTV analysis by source and offer</li>
               </ul>
-              <a
-                href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20-%20Attribution"
+              <CalendlyLink
+                label="pricing-attribution"
                 className="block text-center bg-slate-blue text-white px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
               >
                 Book a Demo
-              </a>
+              </CalendlyLink>
             </motion.div>
 
             {/* Revenue Intelligence */}
@@ -615,12 +617,12 @@ export default function RevenueIntelligencePage() {
                 <li>Conversational AI interface</li>
                 <li>Alerting and anomaly detection on key revenue metrics</li>
               </ul>
-              <a
-                href="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20-%20Full%20Stack"
+              <CalendlyLink
+                label="pricing-revenue-intelligence"
                 className="block text-center border border-slate-blue text-slate-blue px-6 py-3 rounded-md text-sm font-medium hover:bg-slate-blue/5 transition-all duration-200 cursor-pointer"
               >
                 Get Started
-              </a>
+              </CalendlyLink>
             </motion.div>
           </div>
 
@@ -634,9 +636,9 @@ export default function RevenueIntelligencePage() {
           >
             <h3 className="text-sm font-semibold text-midnight mb-3">What happens next</h3>
             <ol className="space-y-2 text-sm text-midnight/60 list-decimal pl-5">
-              <li>Send a short note about your brand and current data stack.</li>
-              <li>We reply within 24 hours with initial thoughts.</li>
-              <li>30-minute strategy call to assess fit and scope.</li>
+              <li>Book a 30-minute call directly on our calendar.</li>
+              <li>Answer a few quick questions about your brand and data stack up front.</li>
+              <li>On the call, we assess fit and map out next steps.</li>
             </ol>
           </motion.div>
 
@@ -652,7 +654,7 @@ export default function RevenueIntelligencePage() {
         title="Stop guessing. Start understanding your revenue."
         description="If you're running a serious ecommerce brand and you're still arguing about whose numbers are right, it's time for a different approach. Revenue Intelligence Stack gives you one source of truth, clear attribution, and instant answers when something changes."
         buttonText="Book a Revenue Intelligence Demo"
-        buttonHref="mailto:artin@mts-analytics.com?subject=Revenue%20Intelligence%20Demo"
+        buttonHref={CALENDLY_URL}
       />
     </div>
   )

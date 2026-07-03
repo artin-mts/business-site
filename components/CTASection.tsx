@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { trackCtaClick } from '@/lib/cta'
 
 interface CTASectionProps {
   id?: string
@@ -21,6 +22,7 @@ export default function CTASection({
   buttonHref = '#contact',
   variant = 'primary',
 }: CTASectionProps) {
+  const isExternal = buttonHref.startsWith('http')
   return (
     <motion.section
       id={id}
@@ -37,6 +39,9 @@ export default function CTASection({
         </p>
         <a
           href={buttonHref}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+          onClick={() => trackCtaClick(buttonText)}
           className={`inline-block px-6 py-3 rounded-md font-medium cursor-pointer ${
             variant === 'primary'
               ? 'bg-slate-blue text-white hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200'

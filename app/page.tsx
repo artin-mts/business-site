@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import CTASection from '@/components/CTASection'
+import { CALENDLY_URL } from '@/lib/cta'
 import ServiceCard from '@/components/ServiceCard'
 import MetricCard from '@/components/MetricCard'
 import CaseStudyCard from '@/components/CaseStudyCard'
@@ -599,9 +600,9 @@ export default function Home() {
         id="contact"
         title="Ready to get serious about your data?"
         description="If you're a growth‑stage ecommerce or DTC brand wrestling with messy data, broken reporting, or unclear ROI — let's talk."
-        subtitle="Send a short note about your brand, your current data stack, and what you wish it could do. We'll reply with next steps."
-        buttonText="Email MTS Analytics"
-        buttonHref="mailto:artin@mts-analytics.com"
+        subtitle="Book a 30-minute call to walk through your brand, your current data stack, and what you want it to do."
+        buttonText="Book a Call with MTS Analytics"
+        buttonHref={CALENDLY_URL}
       />
     </div>
   )

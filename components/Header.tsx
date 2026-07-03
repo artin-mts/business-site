@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
+import CalendlyLink from './CalendlyLink'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -45,12 +46,12 @@ export default function Header() {
             >
               Revenue Intelligence Stack
             </Link>
-            <a
-              href="mailto:artin@mts-analytics.com"
+            <CalendlyLink
+              label="header-desktop-nav"
               className="bg-slate-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg hover:shadow-slate-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
             >
               Talk to MTS Analytics
-            </a>
+            </CalendlyLink>
           </div>
 
           {/* Mobile hamburger */}
@@ -95,12 +96,12 @@ export default function Header() {
               >
                 Revenue Intelligence Stack
               </Link>
-              <a
-                href="mailto:artin@mts-analytics.com"
+              <CalendlyLink
+                label="header-mobile-menu"
                 className="bg-slate-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:brightness-110 transition-all duration-200 text-center cursor-pointer"
               >
                 Talk to MTS Analytics
-              </a>
+              </CalendlyLink>
             </div>
           </motion.div>
         )}
