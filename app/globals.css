@@ -7,11 +7,93 @@
   --soft-white: #F5F5F7;
   --slate-blue: #526CFF;
   --cool-gray: #D5D7DC;
+  
+  /* Creative Intelligence page design tokens */
+  --ci-bg: #0A0B0F;
+  --ci-surface: #12141B;
+  --ci-surface-2: #1A1D26;
+  --ci-border: #262A36;
+  --ci-text: #EDEEF2;
+  --ci-muted: #9BA3B4;
+  --ci-subtle: #7A8296;
+  --ci-signal: #D4FF3A;
+  --ci-brand: #526CFF;
+  --ci-brand-soft: #7C8CFF;
+  --ci-win: #3DDC97;
+  --ci-warn: #FFB547;
+  --ci-loss: #FF6B6B;
 }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: #F5F5F7;
   color: #1C1C1E;
+}
+
+/* Creative Intelligence page specific styles */
+.ci-page {
+  background-color: var(--ci-bg);
+  color: var(--ci-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.ci-page * {
+  scroll-margin-top: 80px;
+}
+
+/* Mono label style for editorial labels */
+.ci-mono-label {
+  font-family: ui-monospace, SFMono-Regular, 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ci-muted);
+}
+
+/* Focus ring for accessibility */
+.ci-page *:focus-visible {
+  outline: 2px solid var(--ci-brand-soft);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .ci-page *,
+  .ci-page *::before,
+  .ci-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Skip to content link for accessibility */
+.ci-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px 16px;
+  background: var(--ci-signal);
+  color: var(--ci-bg);
+  font-weight: 600;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.ci-skip-link:focus {
+  top: 0;
+}
+
+/* Hide main site header/footer when CI page is active */
+/* The CI page renders its own CIHeader and CIFooter */
+body:has(.ci-page) > div > header,
+body:has(.ci-page) > div > footer {
+  display: none !important;
+}
+
+/* Ensure CI page takes full viewport */
+body:has(.ci-page) > div {
+  display: contents;
 }
 
