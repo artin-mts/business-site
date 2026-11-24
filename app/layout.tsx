@@ -1,12 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Schibsted_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Layout from '@/components/Layout'
 
-const inter = Inter({
+const schibsted = Schibsted_Grotesk({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-schibsted',
+  display: 'swap',
+})
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-jetbrains',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -39,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${schibsted.variable} ${jetbrains.variable}`}>
       <head>
         {/* Organization Schema */}
         <script
@@ -91,7 +99,7 @@ gtag('config', 'AW-18297010208');`,
         />
         {/* End Google tag */}
       </head>
-      <body className={inter.className}>
+      <body className={schibsted.className}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
