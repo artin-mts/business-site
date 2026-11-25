@@ -91,8 +91,8 @@ export default function CreativeIntelligencePage() {
       </section>
 
       {/* Outcomes */}
-      <SwissSection figNumber="01" figTitle="OUTCOMES">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-swiss-rule">
+      <SwissSection figNumber="01" figTitle="OUTCOMES" className="!pt-10 md:!pt-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {[
             {
               title: 'Stop funding fatigue early',
@@ -107,7 +107,7 @@ export default function CreativeIntelligencePage() {
               desc: 'New-customer revenue and margin by concept, from your own orders.',
             },
           ].map((item, i) => (
-            <div key={i} className="bg-swiss-white p-6 md:p-8">
+            <div key={i} className="border-t border-swiss-ink pt-4">
               <h3 className="text-h3 text-swiss-ink mb-2">{item.title}</h3>
               <p className="text-body-sm text-swiss-ink-muted">{item.desc}</p>
             </div>

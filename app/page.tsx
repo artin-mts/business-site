@@ -74,7 +74,7 @@ export default function HomePage() {
               
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <SwissButton href="#breakdown" variant="secondary" className="w-full sm:w-auto">
+                <SwissButton href="#breakdown" variant="primary" className="w-full sm:w-auto">
                   Get a free Ad Library breakdown
                   <span aria-hidden="true">→</span>
                 </SwissButton>

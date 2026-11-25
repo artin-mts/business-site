@@ -22,7 +22,9 @@ body {
   font-family: var(--font-schibsted), 'Schibsted Grotesk', system-ui, sans-serif;
   background-color: var(--swiss-white);
   color: var(--swiss-ink);
-  font-variant-numeric: tabular-nums;
+  /* No global tabular-nums: Schibsted Grotesk's tnum feature also swaps
+     , . : ; for 1300-unit tabular glyphs, which rendered as a visible
+     space before punctuation in prose. Use .mono-data for aligned figures. */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
