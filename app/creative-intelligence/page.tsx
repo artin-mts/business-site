@@ -364,7 +364,7 @@ export default function CreativeIntelligencePage() {
             Find out what's working.
           </h2>
           <p className="text-body text-swiss-ink-muted mb-8">
-            Send me a brand. I'll send back a one-page breakdown of its live Meta ads. Free, in {CI_CONFIG.breakdownSLA}.
+            Send us a brand. We'll send back a one-page breakdown of its live Meta ads. Free, in {CI_CONFIG.breakdownSLA}.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -385,7 +385,7 @@ export default function CreativeIntelligencePage() {
           </div>
 
           <p className="mt-6 text-caption text-swiss-ink-subtle">
-            No ad account access needed. Email {CI_CONFIG.leadEmail}
+            No ad account access needed. <a href={`mailto:${CI_CONFIG.leadEmail}`} className="underline hover:text-swiss-ink transition-colors">Email us</a>
           </p>
         </div>
       </SwissSection>

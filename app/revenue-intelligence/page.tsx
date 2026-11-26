@@ -329,7 +329,7 @@ export default function DataFoundationPage() {
           </div>
 
           <p className="mt-6 text-caption text-swiss-ink-subtle">
-            Email {CI_CONFIG.leadEmail}
+            <a href={`mailto:${CI_CONFIG.leadEmail}`} className="underline hover:text-swiss-ink transition-colors">Email us</a>
           </p>
         </div>
       </SwissSection>

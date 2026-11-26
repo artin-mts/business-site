@@ -301,26 +301,31 @@ export default function HomePage() {
 
       {/* About Section - warm background */}
       <SwissSection id="about" figNumber="FIG. 6" figTitle="WHO YOU WORK WITH" warm>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div className="lg:col-span-7">
-            <h2 className="text-h1 text-swiss-ink mb-4">
-              You work with me, not a rotating team.
-            </h2>
-            <p className="text-body text-swiss-ink-muted mb-4">
-              I'm Artin Sarkisian. I've spent 10+ years building data infrastructure and analytics for high-growth companies, mostly e-commerce and DTC: warehouses, ad-platform pipelines, revenue models, and the AI layers on top.
-            </p>
-            <p className="text-body text-swiss-ink-muted">
-              I started MTS Analytics to build the systems I kept wishing brands had: ones that turn a pile of ad data into a clear decision.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           <div className="lg:col-span-5">
-            {/* Headshot placeholder - hidden in production per brief */}
-            <div className="aspect-[4/5] bg-swiss-rule-dark flex items-center justify-center">
-              <div className="text-center px-6">
-                <p className="text-caption text-swiss-ink-subtle">Real headshot of Artin</p>
-                <p className="text-caption text-swiss-ink-subtle">(environmental portrait, at his desk)</p>
-              </div>
-            </div>
+            <h2 className="text-h1 text-swiss-ink">
+              Senior data engineers, not a rotating team.
+            </h2>
+          </div>
+          <div className="lg:col-span-7 lg:pt-2">
+            <p className="text-body text-swiss-ink-muted mb-4">
+              MTS Analytics builds data infrastructure and analytics for high-growth e-commerce and DTC brands: warehouses, ad-platform pipelines, revenue models, and the AI layers on top.
+            </p>
+            <p className="text-body text-swiss-ink-muted mb-8">
+              We build the systems brands keep wishing they had: ones that turn a pile of ad data into a clear decision. Senior people do the work, start to finish, with no handoffs.
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {[
+                { n: '01', t: 'Warehouse & pipelines' },
+                { n: '02', t: 'Revenue & attribution models' },
+                { n: '03', t: 'AI on top of clean data' },
+              ].map((item) => (
+                <li key={item.n} className="border-t border-swiss-ink pt-3">
+                  <span className="block font-mono text-mono-sm text-swiss-ink-subtle mb-1">{item.n}</span>
+                  <span className="text-body-sm text-swiss-ink">{item.t}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </SwissSection>
@@ -355,7 +360,7 @@ export default function HomePage() {
             { q: 'How is this different from Motion, Atria, or Foreplay?', a: 'Those are great tools, and the agent can work alongside them. The difference: we join every ad to your actual orders and margin, build the concept taxonomy around your brand, and run it in infrastructure you own.' },
             { q: 'What do you need from us for the pilot?', a: 'Read access to Meta Ads and Shopify (or your warehouse), a list of up to 5 competitors, and a 30-minute kickoff call. Most of the setup is on us.' },
             { q: 'Will the agent change our ads automatically?', a: 'Not unless you want it to. By default it recommends; your team decides what to act on.' },
-            { q: 'What if our data is a mess?', a: 'That\'s my background. If the foundation isn\'t ready, we fix the ads-to-orders join first as part of the build, or as a separate Data Foundation project.' },
+            { q: 'What if our data is a mess?', a: 'That\'s our core expertise. If the foundation isn\'t ready, we fix the ads-to-orders join first as part of the build, or as a separate Data Foundation project.' },
           ].map((item, i) => (
             <details key={i} className="group">
               <summary className="flex items-center justify-between cursor-pointer py-4 text-swiss-ink font-medium list-none [&::-webkit-details-marker]:hidden">
@@ -379,7 +384,7 @@ export default function HomePage() {
             Find out what's working, for you and your competitors.
           </h2>
           <p className="text-body text-swiss-ink-muted mb-8">
-            Send me a brand. I'll send back a one-page breakdown of its live Meta ads: concepts, longevity, and the gaps you haven't tried. Free, in {CI_CONFIG.breakdownSLA}.
+            Send us a brand. We'll send back a one-page breakdown of its live Meta ads: concepts, longevity, and the gaps you haven't tried. Free, in {CI_CONFIG.breakdownSLA}.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -400,7 +405,7 @@ export default function HomePage() {
           </div>
 
           <p className="mt-6 text-caption text-swiss-ink-subtle">
-            No ad account access needed. Email {CI_CONFIG.leadEmail}
+            No ad account access needed. <a href={`mailto:${CI_CONFIG.leadEmail}`} className="underline hover:text-swiss-ink transition-colors">Email us</a>
           </p>
         </div>
       </SwissSection>

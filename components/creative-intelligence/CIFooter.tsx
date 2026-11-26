@@ -52,7 +52,7 @@ export default function CIFooter() {
                   href={`mailto:${CI_CONFIG.leadEmail}`} 
                   className="text-ci-muted text-sm hover:text-ci-text transition-colors"
                 >
-                  {CI_CONFIG.leadEmail}
+                  Email us
                 </a>
               </li>
               <li>

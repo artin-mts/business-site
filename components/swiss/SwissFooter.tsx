@@ -48,7 +48,7 @@ export default function SwissFooter() {
                   href={`mailto:${CI_CONFIG.leadEmail}`}
                   className="text-body-sm text-swiss-ink-muted hover:text-swiss-ink transition-colors"
                 >
-                  {CI_CONFIG.leadEmail}
+                  Email us
                 </a>
               </li>
               <li>

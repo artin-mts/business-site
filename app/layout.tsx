@@ -59,11 +59,6 @@ export default function RootLayout({
               name: 'MTS Analytics',
               url: 'https://mts-analytics.com',
               description: 'Senior-led data & AI studio for ecommerce and DTC brands. Modern data pipelines, unified dashboards, and AI-powered analytics.',
-              contactPoint: {
-                '@type': 'ContactPoint',
-                email: 'artin@mts-analytics.com',
-                contactType: 'sales',
-              },
               areaServed: 'US',
             }),
           }}

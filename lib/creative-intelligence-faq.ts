@@ -30,7 +30,7 @@ export const ciFaqItems: FAQItem[] = [
   },
   {
     question: 'What if our data is a mess?',
-    answer: "That's my background. If the foundation isn't ready, we fix the ads-to-orders join first as part of the build, or as a separate Data Foundation project.",
+    answer: "That's our core expertise. If the foundation isn't ready, we fix the ads-to-orders join first as part of the build, or as a separate Data Foundation project.",
   },
   {
     question: 'Do you make the ads too?',
