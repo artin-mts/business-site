@@ -22,9 +22,9 @@ export default function SwissButton({
   const baseStyles = 'inline-flex items-center justify-center gap-2 font-medium transition-colors';
   
   const variantStyles = {
-    primary: 'bg-swiss-orange text-swiss-white px-6 py-3 hover:bg-swiss-orange-hover',
+    primary: 'bg-swiss-accent text-swiss-white px-6 py-3 hover:bg-swiss-accent-hover',
     secondary: 'bg-swiss-white text-swiss-ink border border-swiss-ink px-6 py-3 hover:bg-swiss-paper',
-    ghost: 'text-swiss-ink border-b border-swiss-ink hover:border-swiss-orange hover:text-swiss-orange px-0 py-1',
+    ghost: 'text-swiss-ink border-b border-swiss-ink hover:border-swiss-accent hover:text-swiss-accent px-0 py-1',
   };
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`;

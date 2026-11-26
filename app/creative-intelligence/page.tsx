@@ -70,7 +70,7 @@ export default function CreativeIntelligencePage() {
               The Creative Intelligence Agent
             </h1>
             <p className="text-body text-swiss-ink-muted mb-8">
-              A weekly brief on what's winning, what's fatiguing, and what to make next—grounded in your orders and your competitors' live ads. Built in your data, run by a senior engineer.
+              A weekly brief on what's winning, what's fatiguing, and what to make next—grounded in your orders and your competitors' live ads. Built in your data, run by senior engineers.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -170,7 +170,7 @@ export default function CreativeIntelligencePage() {
               {[
                 { type: '▲ WINNING', label: 'Founder-story, kitchen POV', evidence: 'New-cust. revenue share 41% vs 28% avg', color: 'text-swiss-win' },
                 { type: '▼ FATIGUING', label: 'Before/after split', evidence: 'CPA up 3 weeks running, frequency rising', color: 'text-swiss-warn' },
-                { type: '◆ MAKE NEXT', label: 'Ingredient close-up', evidence: 'Running 70+ days at 3 competitors', color: 'text-swiss-orange' },
+                { type: '◆ MAKE NEXT', label: 'Ingredient close-up', evidence: 'Running 70+ days at 3 competitors', color: 'text-swiss-accent' },
               ].map((item, i) => (
                 <div key={i} className="px-5 py-4">
                   <div className="flex items-center justify-between mb-1">
@@ -200,7 +200,7 @@ export default function CreativeIntelligencePage() {
             { week: 'Week 4', title: 'Readout', desc: "What we found, what it's worth, build-or-stop recommendation." },
           ].map((item, i) => (
             <div key={i} className="border-t border-swiss-rule pt-6">
-              <div className="font-mono text-mono-sm text-swiss-orange mb-2">{item.week}</div>
+              <div className="font-mono text-mono-sm text-swiss-accent mb-2">{item.week}</div>
               <h3 className="text-h3 text-swiss-ink mb-1">{item.title}</h3>
               <p className="text-body-sm text-swiss-ink-muted">{item.desc}</p>
             </div>
@@ -238,9 +238,9 @@ export default function CreativeIntelligencePage() {
               ctaHref: CI_CONFIG.calendlyUrl,
             },
           ].map((tier, i) => (
-            <div key={i} className={`bg-swiss-white p-6 md:p-8 ${tier.highlight ? 'ring-2 ring-swiss-orange ring-inset' : ''}`}>
+            <div key={i} className={`bg-swiss-white p-6 md:p-8 ${tier.highlight ? 'ring-2 ring-swiss-accent ring-inset' : ''}`}>
               {tier.highlight && (
-                <div className="font-mono text-mono-sm text-swiss-orange mb-4">MOST TEAMS START HERE</div>
+                <div className="font-mono text-mono-sm text-swiss-accent mb-4">MOST TEAMS START HERE</div>
               )}
               <h3 className="text-h3 text-swiss-ink mb-1">{tier.name}</h3>
               <div className="font-mono text-body text-swiss-ink-muted mb-1">{tier.price}</div>
@@ -279,7 +279,7 @@ export default function CreativeIntelligencePage() {
                 <th className="py-3 pr-4 font-mono text-mono-sm text-swiss-ink-subtle font-normal">Feature</th>
                 <th className="py-3 px-4 font-mono text-mono-sm text-swiss-ink-subtle font-normal">Creative SaaS</th>
                 <th className="py-3 px-4 font-mono text-mono-sm text-swiss-ink-subtle font-normal">Agency</th>
-                <th className="py-3 pl-4 font-mono text-mono-sm text-swiss-orange font-normal border-l border-swiss-rule bg-swiss-paper">MTS</th>
+                <th className="py-3 pl-4 font-mono text-mono-sm text-swiss-accent font-normal border-l border-swiss-rule bg-swiss-paper">MTS</th>
               </tr>
             </thead>
             <tbody className="text-body-sm">

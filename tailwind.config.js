@@ -12,14 +12,16 @@ module.exports = {
         swiss: {
           white: '#FFFFFF',
           paper: '#FAFAFA',
-          warm: '#F5F0E8',       // Warm off-white for About section
+          tint: '#F4F7FB',       // Cool ice-blue tint for About section
           ink: '#0A0A0A',        // Near-black for text
           'ink-muted': '#525252', // Muted text
           'ink-subtle': '#8A8A8A', // Subtle text / captions
           rule: '#E5E5E5',       // Hairline rules
           'rule-dark': '#D4D4D4', // Darker rules
-          orange: '#E85A1C',     // Data marks, key data, primary CTA
-          'orange-hover': '#D14D12',
+          accent: '#1D4ED8',     // Cobalt: data marks, key data, primary CTA
+          'accent-50': '#EFF6FF',
+          'accent-100': '#DBEAFE',
+          'accent-hover': '#1E40AF',
           win: '#16A34A',        // Green for positive
           warn: '#DC2626',       // Red for negative/fatiguing
         },

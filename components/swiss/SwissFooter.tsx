@@ -13,7 +13,7 @@ export default function SwissFooter() {
               MTS Analytics
             </div>
             <p className="text-body-sm text-swiss-ink-muted max-w-xs">
-              Creative intelligence for DTC brands on Meta. Know which ads to make next.
+              Data infrastructure and AI agents for DTC and e-commerce brands.
             </p>
           </div>
 
@@ -22,18 +22,18 @@ export default function SwissFooter() {
             <div className="mono-label mb-4">Offers</div>
             <ul className="space-y-2">
               <li>
-                <a href="#breakdown" className="text-body-sm text-swiss-ink-muted hover:text-swiss-ink transition-colors">
-                  Free Breakdown
-                </a>
-              </li>
-              <li>
-                <Link href="/creative-intelligence/#offer" className="text-body-sm text-swiss-ink-muted hover:text-swiss-ink transition-colors">
-                  30-Day Pilot
+                <Link href="/creative-intelligence/" className="text-body-sm text-swiss-ink-muted hover:text-swiss-ink transition-colors">
+                  Creative Intelligence
                 </Link>
               </li>
               <li>
                 <Link href="/revenue-intelligence/" className="text-body-sm text-swiss-ink-muted hover:text-swiss-ink transition-colors">
                   Data Foundation
+                </Link>
+              </li>
+              <li>
+                <Link href="/#offers" className="text-body-sm text-swiss-ink-muted hover:text-swiss-ink transition-colors">
+                  Custom AI &amp; Analytics
                 </Link>
               </li>
             </ul>
@@ -69,7 +69,7 @@ export default function SwissFooter() {
             <div className="mono-label mb-4">Info</div>
             <ul className="space-y-2 text-body-sm text-swiss-ink-subtle">
               <li>Los Angeles, CA</li>
-              <li>Senior engineer, no handoffs</li>
+              <li>Senior-led, no handoffs</li>
               <li>Registered in SAM.gov</li>
             </ul>
           </div>

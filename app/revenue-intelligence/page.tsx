@@ -160,7 +160,7 @@ export default function DataFoundationPage() {
             { step: '04', title: 'Ask', desc: 'Add conversational AI so you can ask questions and get instant answers.' },
           ].map((item) => (
             <div key={item.step} className="border-t border-swiss-rule pt-6">
-              <div className="font-mono text-mono-sm text-swiss-orange mb-2">{item.step}</div>
+              <div className="font-mono text-mono-sm text-swiss-accent mb-2">{item.step}</div>
               <h3 className="text-h3 text-swiss-ink mb-1">{item.title}</h3>
               <p className="text-body-sm text-swiss-ink-muted">{item.desc}</p>
             </div>
@@ -221,7 +221,7 @@ export default function DataFoundationPage() {
                 'Brands serious about understanding attribution and unit economics',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-body-sm text-swiss-ink-muted">
-                  <span className="text-swiss-orange">—</span> {item}
+                  <span className="text-swiss-accent">—</span> {item}
                 </li>
               ))}
             </ul>
@@ -265,7 +265,7 @@ export default function DataFoundationPage() {
                 'On the call, we assess fit and map out next steps.',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="font-mono text-swiss-orange">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-mono text-swiss-accent">{String(i + 1).padStart(2, '0')}</span>
                   {item}
                 </li>
               ))}
@@ -300,8 +300,8 @@ export default function DataFoundationPage() {
                   { layer: 'Models (dbt)', active: false },
                   { layer: 'Warehouse (BigQuery)', active: false },
                 ].map((item, i) => (
-                  <div key={i} className={`px-4 py-2 border ${item.active ? 'border-swiss-orange bg-swiss-orange/5' : 'border-swiss-rule'}`}>
-                    <span className={`text-body-sm ${item.active ? 'text-swiss-orange font-medium' : 'text-swiss-ink-muted'}`}>
+                  <div key={i} className={`px-4 py-2 border ${item.active ? 'border-swiss-accent bg-swiss-accent/5' : 'border-swiss-rule'}`}>
+                    <span className={`text-body-sm ${item.active ? 'text-swiss-accent font-medium' : 'text-swiss-ink-muted'}`}>
                       {item.layer}
                     </span>
                   </div>

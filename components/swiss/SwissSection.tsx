@@ -6,7 +6,7 @@ interface SwissSectionProps {
   figTitle?: string;
   children: ReactNode;
   className?: string;
-  warm?: boolean;
+  tint?: boolean;
   noPadding?: boolean;
 }
 
@@ -16,14 +16,14 @@ export default function SwissSection({
   figTitle,
   children, 
   className = '',
-  warm = false,
+  tint = false,
   noPadding = false,
 }: SwissSectionProps) {
   return (
     <section 
       id={id} 
       className={`
-        ${warm ? 'bg-swiss-warm' : 'bg-swiss-white'}
+        ${tint ? 'bg-swiss-tint' : 'bg-swiss-white'}
         ${noPadding ? '' : 'py-16 md:py-24'}
         ${className}
       `}

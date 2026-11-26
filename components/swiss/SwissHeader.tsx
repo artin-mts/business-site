@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { CI_CONFIG } from '@/lib/creative-intelligence-config';
 
 const navItems = [
-  { number: '01', label: 'Agent', href: '/creative-intelligence/' },
-  { number: '02', label: 'Sample brief', href: '/creative-intelligence/#sample-brief' },
-  { number: '03', label: 'Data foundation', href: '/revenue-intelligence/' },
+  { number: '01', label: 'Offers', href: '/#offers' },
+  { number: '02', label: 'Creative Intelligence', href: '/creative-intelligence/' },
+  { number: '03', label: 'Data Foundation', href: '/revenue-intelligence/' },
   { number: '04', label: 'About', href: '/#about' },
 ];
 
@@ -44,14 +44,14 @@ export default function SwissHeader() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8 whitespace-nowrap">
             {navItems.map((item) => (
               <Link
                 key={item.number}
                 href={item.href}
                 className="group flex items-baseline gap-1.5 text-swiss-ink-muted hover:text-swiss-ink transition-colors"
               >
-                <span className="font-mono text-mono-sm text-swiss-ink-subtle group-hover:text-swiss-orange transition-colors">
+                <span className="font-mono text-mono-sm text-swiss-ink-subtle group-hover:text-swiss-accent transition-colors">
                   {item.number}
                 </span>
                 <span className="text-body-sm">{item.label}</span>
@@ -62,10 +62,12 @@ export default function SwissHeader() {
           {/* CTA */}
           <div className="flex items-center gap-4">
             <a
-              href="#breakdown"
-              className="hidden sm:inline-flex items-center gap-2 text-swiss-ink font-medium text-body-sm border-b border-swiss-ink hover:border-swiss-orange hover:text-swiss-orange transition-colors"
+              href={CI_CONFIG.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-2 whitespace-nowrap text-swiss-ink font-medium text-body-sm border-b border-swiss-ink hover:border-swiss-accent hover:text-swiss-accent transition-colors"
             >
-              Free breakdown
+              Book a call
               <span aria-hidden="true">↗</span>
             </a>
 
@@ -105,11 +107,13 @@ export default function SwissHeader() {
             ))}
             <div className="pt-6">
               <a
-                href="#breakdown"
+                href={CI_CONFIG.calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center w-full gap-2 bg-swiss-orange text-swiss-white font-semibold py-3 px-6 hover:bg-swiss-orange-hover transition-colors"
+                className="inline-flex items-center justify-center w-full gap-2 bg-swiss-accent text-swiss-white font-semibold py-3 px-6 hover:bg-swiss-accent-hover transition-colors"
               >
-                Free breakdown
+                Book a 30-minute call
                 <span aria-hidden="true">→</span>
               </a>
             </div>

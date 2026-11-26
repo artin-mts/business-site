@@ -81,7 +81,7 @@ export default function HeroAdStrip({ className = '', showCaption = true }: Hero
         <div className="flex items-baseline justify-between mb-3 font-mono text-mono-sm text-swiss-ink-subtle">
           <span>
             FIG. 1 — {TOTAL_ADS.toLocaleString()} ADS WITH SPEND, 90 DAYS (MEDIAN DTC BRAND). 
-            <span className="text-swiss-orange ml-1">{WINNING_ADS} TOOK ≥1% OF SPEND.</span>
+            <span className="text-swiss-accent ml-1">{WINNING_ADS} TOOK ≥1% OF SPEND.</span>
           </span>
           <span className="hidden sm:inline">
             SOURCE: <a 
@@ -134,7 +134,7 @@ export default function HeroAdStrip({ className = '', showCaption = true }: Hero
             ))}
           </g>
           <g
-            stroke="var(--swiss-orange)"
+            stroke="var(--swiss-accent)"
             strokeWidth={2}
             data-mark="winning"
             style={{

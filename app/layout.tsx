@@ -18,8 +18,8 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'MTS Analytics | Modern Data Pipelines & AI-Powered Analytics for DTC Brands',
-  description: 'Stop pulling reports from 5 different platforms. Get one source of truth that actually works. Modern data pipelines, unified dashboards, and AI that answers real questions for DTC brands.',
+  title: 'MTS Analytics | Data Infrastructure & AI Agents for DTC Brands',
+  description: 'MTS Analytics unifies ad, order, and warehouse data into one reliable layer, then builds practical AI agents and analytics systems on top for DTC and e-commerce brands.',
   metadataBase: new URL('https://mts-analytics.com'),
   alternates: {
     canonical: '/',
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'MTS Analytics | Modern Data Pipelines & AI-Powered Analytics for DTC Brands',
-    description: 'Stop pulling reports from 5 different platforms. Get one source of truth that actually works.',
+    title: 'MTS Analytics | Data Infrastructure & AI Agents for DTC Brands',
+    description: 'MTS Analytics unifies ad, order, and warehouse data into one reliable layer, then builds practical AI agents and analytics systems on top for DTC and e-commerce brands.',
     url: 'https://mts-analytics.com',
     siteName: 'MTS Analytics',
     type: 'website',
@@ -58,7 +58,7 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'MTS Analytics',
               url: 'https://mts-analytics.com',
-              description: 'Senior-led data & AI studio for ecommerce and DTC brands. Modern data pipelines, unified dashboards, and AI-powered analytics.',
+              description: 'Senior-led data & AI studio for e-commerce and DTC brands: unified data infrastructure and practical AI agents built on top.',
               areaServed: 'US',
             }),
           }}
